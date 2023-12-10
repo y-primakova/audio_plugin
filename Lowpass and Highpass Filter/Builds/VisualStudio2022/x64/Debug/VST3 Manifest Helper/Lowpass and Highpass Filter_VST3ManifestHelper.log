@@ -1,0 +1,4 @@
+﻿  juce_VST3ManifestHelper.cpp
+C:\JUCE\modules\juce_audio_plugin_client\VST3\juce_VST3ManifestHelper.cpp(1,1): error C1083: Не удается открыть файл источник: C:\JUCE\modules\juce_audio_plugin_client\VST3\juce_VST3ManifestHelper.cpp: No such file or directory,
+  (компиляция исходного файла "../../../../../../../JUCE/modules/juce_audio_plugin_client/VST3/juce_VST3ManifestHelper.cpp")
+  
