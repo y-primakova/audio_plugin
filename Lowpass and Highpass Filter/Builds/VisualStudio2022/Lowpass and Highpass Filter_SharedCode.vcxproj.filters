@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Lowpass and Highpass Filter\Source">
+      <UniqueIdentifier>{BAF8351A-AA40-AAB3-1B58-27F400DD1392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lowpass and Highpass Filter">
+      <UniqueIdentifier>{A1BB71C3-4A9F-BE2B-5E67-870C819AA82F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JUCE Library Code">
+      <UniqueIdentifier>{7ED5A90E-41AF-A1EF-659B-37CEEAB9BA61}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\PluginProcessor.cpp">
+      <Filter>Lowpass and Highpass Filter\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginEditor.cpp">
+      <Filter>Lowpass and Highpass Filter\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\LowpassHighpassFilter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\PluginProcessor.h">
+      <Filter>Lowpass and Highpass Filter\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginEditor.h">
+      <Filter>Lowpass and Highpass Filter\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
+      <Filter>JUCE Library Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\JucePluginDefines.h">
+      <Filter>JUCE Library Code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\LowpassHighpassFilter.h" />
+  </ItemGroup>
+</Project>

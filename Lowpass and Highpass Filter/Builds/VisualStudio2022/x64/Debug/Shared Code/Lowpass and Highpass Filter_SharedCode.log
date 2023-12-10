@@ -1,0 +1,685 @@
+﻿  LowpassHighpassFilter.cpp
+  PluginProcessor.cpp
+  PluginEditor.cpp
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(16,56): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(16,56): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(16,62): error C2504: AudioProcessor: не определен базовый класс
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(16,62): error C2504: AudioProcessor: не определен базовый класс
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(28,51): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(28,51): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(28,51): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(28,51): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(31,24): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(31,24): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(31,30): error C2061: синтаксическая ошибка: идентификатор "AudioBuffer"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(31,30): error C2061: синтаксическая ошибка: идентификатор "AudioBuffer"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(34,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(34,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(34,31): error C2143: синтаксическая ошибка: отсутствие ";" перед "*"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(34,31): error C2143: синтаксическая ошибка: отсутствие ";" перед "*"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(34,31): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(34,31): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(34,56): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(34,56): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,11): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,11): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,24): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,24): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,24): error C3646: getName: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,24): error C3646: getName: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,32): error C2059: синтаксическая ошибка: )
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,32): error C2059: синтаксическая ошибка: )
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,48): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(38,48): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,11): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,24): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,11): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,24): error C3646: getProgramName: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,24): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,40): error C2062: тип "int" не требуется
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,59): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,24): error C3646: getProgramName: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(50,46): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,40): error C2062: тип "int" не требуется
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(50,58): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(49,59): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(50,58): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(53,31): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(50,46): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(50,58): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(53,37): error C2061: синтаксическая ошибка: идентификатор "MemoryBlock"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(50,58): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(57,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(53,31): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(53,37): error C2061: синтаксическая ошибка: идентификатор "MemoryBlock"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(57,40): error C3646: parameters: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(57,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(57,50): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(57,40): error C3646: parameters: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(57,50): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(58,10): error C2039: "atomic": не является членом "std".
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(58,10): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "atomic".
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(58,10): error C2039: "atomic": не является членом "std".
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(58,10): error C2062: тип "unknown-type" не требуется
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(58,59): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(58,10): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "atomic".
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(59,10): error C2039: "atomic": не является членом "std".
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(58,10): error C2062: тип "unknown-type" не требуется
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(59,10): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "atomic".
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(58,59): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(59,10): error C2062: тип "unknown-type" не требуется
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(59,52): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(59,10): error C2039: "atomic": не является членом "std".
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(62,27): error C3646: filter: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(62,33): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(59,10): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "atomic".
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(59,10): error C2062: тип "unknown-type" не требуется
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(65,1): error C2143: синтаксическая ошибка: отсутствие ";" перед "}"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(59,52): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(65,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(62,27): error C3646: filter: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(65,1): warning C4183: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(62,33): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(21,6): error C3668: LowpassandHighpassFilterAudioProcessor::~LowpassandHighpassFilterAudioProcessor: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(65,1): error C2143: синтаксическая ошибка: отсутствие ";" перед "}"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(24,10): error C3668: LowpassandHighpassFilterAudioProcessor::prepareToPlay: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(65,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(25,10): error C3668: LowpassandHighpassFilterAudioProcessor::releaseResources: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(28,10): error C3668: LowpassandHighpassFilterAudioProcessor::isBusesLayoutSupported: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(65,1): warning C4183: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(31,10): error C3668: LowpassandHighpassFilterAudioProcessor::processBlock: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(35,10): error C3668: LowpassandHighpassFilterAudioProcessor::hasEditor: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(21,6): error C3668: LowpassandHighpassFilterAudioProcessor::~LowpassandHighpassFilterAudioProcessor: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(40,10): error C3668: LowpassandHighpassFilterAudioProcessor::acceptsMidi: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(24,10): error C3668: LowpassandHighpassFilterAudioProcessor::prepareToPlay: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(41,10): error C3668: LowpassandHighpassFilterAudioProcessor::producesMidi: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(25,10): error C3668: LowpassandHighpassFilterAudioProcessor::releaseResources: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(42,10): error C3668: LowpassandHighpassFilterAudioProcessor::isMidiEffect: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(28,10): error C3668: LowpassandHighpassFilterAudioProcessor::isBusesLayoutSupported: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(43,12): error C3668: LowpassandHighpassFilterAudioProcessor::getTailLengthSeconds: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(46,9): error C3668: LowpassandHighpassFilterAudioProcessor::getNumPrograms: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(31,10): error C3668: LowpassandHighpassFilterAudioProcessor::processBlock: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(35,10): error C3668: LowpassandHighpassFilterAudioProcessor::hasEditor: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(47,9): error C3668: LowpassandHighpassFilterAudioProcessor::getCurrentProgram: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(40,10): error C3668: LowpassandHighpassFilterAudioProcessor::acceptsMidi: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(48,10): error C3668: LowpassandHighpassFilterAudioProcessor::setCurrentProgram: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(50,10): error C3668: LowpassandHighpassFilterAudioProcessor::changeProgramName: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(41,10): error C3668: LowpassandHighpassFilterAudioProcessor::producesMidi: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(53,10): error C3668: LowpassandHighpassFilterAudioProcessor::getStateInformation: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(42,10): error C3668: LowpassandHighpassFilterAudioProcessor::isMidiEffect: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(54,10): error C3668: LowpassandHighpassFilterAudioProcessor::setStateInformation: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(43,12): error C3668: LowpassandHighpassFilterAudioProcessor::getTailLengthSeconds: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(46,9): error C3668: LowpassandHighpassFilterAudioProcessor::getNumPrograms: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(47,9): error C3668: LowpassandHighpassFilterAudioProcessor::getCurrentProgram: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(17,62): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(48,10): error C3668: LowpassandHighpassFilterAudioProcessor::setCurrentProgram: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(17,68): error C2504: AudioProcessorEditor: не определен базовый класс
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(50,10): error C3668: LowpassandHighpassFilterAudioProcessor::changeProgramName: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(21,47): error C2061: синтаксическая ошибка: идентификатор "LowpassHighpassFilterAudioProcessor"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(53,10): error C3668: LowpassandHighpassFilterAudioProcessor::getStateInformation: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(21,124): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.h(54,10): error C3668: LowpassandHighpassFilterAudioProcessor::setStateInformation: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(21,124): warning C4183: LowpassHighpassFilterAudioProcessorEditor: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(17,62): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(17,68): error C2504: AudioProcessorEditor: не определен базовый класс
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(25,17): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(21,47): error C2061: синтаксическая ошибка: идентификатор "LowpassHighpassFilterAudioProcessor"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(25,23): error C2061: синтаксическая ошибка: идентификатор "Graphics"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(21,124): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(29,40): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(21,124): warning C4183: LowpassHighpassFilterAudioProcessorEditor: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(29,40): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(25,17): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(29,56): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(25,23): error C2061: синтаксическая ошибка: идентификатор "Graphics"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(30,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(29,40): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(30,18): error C3646: cutoffFrequencySlider: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(29,40): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(30,39): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(29,56): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(30,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,10): error C2039: "unique_ptr": не является членом "std".
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(30,18): error C3646: cutoffFrequencySlider: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,21): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,57): error C2065: SliderAttachment: необъявленный идентификатор
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(30,39): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,10): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "unique_ptr".
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,10): error C2039: "unique_ptr": не является членом "std".
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,10): error C2062: тип "unknown-type" не требуется
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,21): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(32,34): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,57): error C2065: SliderAttachment: необъявленный идентификатор
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(33,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,10): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "unique_ptr".
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(33,17): error C3646: cutoffFrequencyLabel: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(31,10): error C2062: тип "unknown-type" не требуется
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(33,37): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(32,34): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(35,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(33,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(33,17): error C3646: cutoffFrequencyLabel: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(35,24): error C3646: highpassButton: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(33,37): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(35,38): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(35,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(35,24): error C3646: highpassButton: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,10): error C2039: "unique_ptr": не является членом "std".
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(35,38): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,21): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,10): error C2039: "unique_ptr": не является членом "std".
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,57): error C2065: ButtonAttachment: необъявленный идентификатор
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,10): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "unique_ptr".
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,21): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,57): error C2065: ButtonAttachment: необъявленный идентификатор
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,10): error C2062: тип "unknown-type" не требуется
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(37,27): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,10): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "unique_ptr".
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(38,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(36,10): error C2062: тип "unknown-type" не требуется
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(38,17): error C3646: highpassButtonLabel: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(37,27): error C2238: непредвиденные лексемы перед ";"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(38,36): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(38,5): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(41,50): error C2061: синтаксическая ошибка: идентификатор "LowpassHighpassFilterAudioProcessorEditor"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(38,17): error C3646: highpassButtonLabel: неизвестный спецификатор переопределения
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(42,1): error C2143: синтаксическая ошибка: отсутствие ";" перед "}"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(38,36): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(42,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(41,50): error C2061: синтаксическая ошибка: идентификатор "LowpassHighpassFilterAudioProcessorEditor"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(42,1): warning C4183: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(42,1): error C2143: синтаксическая ошибка: отсутствие ";" перед "}"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(22,6): error C3668: LowpassandHighpassFilterAudioProcessorEditor::~LowpassandHighpassFilterAudioProcessorEditor: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(42,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(25,10): error C3668: LowpassandHighpassFilterAudioProcessorEditor::paint: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(26,10): error C3668: LowpassandHighpassFilterAudioProcessorEditor::resized: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginEditor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(42,1): warning C4183: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR: отсутствие возвращаемого типа; предполагается функция-член, возвращающая "int"
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(13,1): error C2653: LowpassHighpassFilterAudioProcessorEditor: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(22,6): error C3668: LowpassandHighpassFilterAudioProcessorEditor::~LowpassandHighpassFilterAudioProcessorEditor: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(13,121): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(25,10): error C3668: LowpassandHighpassFilterAudioProcessorEditor::paint: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(13,86): error C2065: LowpassHighpassFilterAudioProcessor: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.h(26,10): error C3668: LowpassandHighpassFilterAudioProcessorEditor::resized: метод со спецификатором переопределения "override" не переопределяет какие-либо методы базового класса
+  (компиляция исходного файла "../../Source/PluginProcessor.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(13,123): error C2065: p: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(13,126): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(16,9): error C3861: BusesProperties: идентификатор не найден
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(13,132): error C2065: AudioProcessorValueTreeState: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(19,29): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(13,162): error C2065: vts: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(19,52): error C3861: stereo: идентификатор не найден
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(14,5): error C2059: синтаксическая ошибка: :
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(21,31): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(14,28): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(21,54): error C3861: stereo: идентификатор не найден
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(14,29): error C2065: p: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(29,5): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(29,11): error C3861: Identifier: идентификатор не найден
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(14,49): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(14,48): error C2065: p: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(30,12): error C2039: "make_unique": не является членом "std".
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(14,51): error C2059: синтаксическая ошибка: {
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(30,24): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(14,51): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(30,30): error C2065: AudioParameterFloat: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(14,51): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(33,9): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(33,15): error C2065: NormalisableRange: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(42,59): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(42,73): error C2761: "void LowpassandHighpassFilterAudioProcessorEditor::paint(void)": повторное объявление члена запрещено.
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(42,65): error C2065: Graphics: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(39,11): error C2039: "make_unique": не является членом "std".
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Builds\VisualStudio2022\predefined C++ types (compiler internal)(348,11):
+   см. объявление "std"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(42,75): error C2065: g: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(43,1): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(39,23): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(45,5): error C3927: "->": конечный тип возвращаемого значения недопустим после оператора объявления, не относящегося к функции.
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(45,6): error C3484: синтаксическая ошибка: требуется "->" перед возвращающим типом
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(39,29): error C2065: AudioParameterBool: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(45,7): error C3613: отсутствует тип возвращаемого значения после "->" (предполагается int)
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(45,15): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(15,7): error C2614: LowpassandHighpassFilterAudioProcessor: недопустимая инициализация члена: "AudioProcessor" не является базовым классом или членом
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(45,7): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "fillAll"
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginEditor.cpp(45,7): error C1003: число ошибок превышает 100; остановка компиляции
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(27,1): error C2614: LowpassandHighpassFilterAudioProcessor: недопустимая инициализация члена: "parameters" не является базовым классом или членом
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(43,5): error C2065: cutoffFrequencyParameter: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(44,9): error C2065: parameters: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(45,5): error C2065: highpassParameter: необъявленный идентификатор
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\PluginProcessor.cpp(45,5): error C1003: число ошибок превышает 100; остановка компиляции
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.h(14,20): error C2653: juce: не является именем класса или пространства имен
+  (компиляция исходного файла "../../Source/LowpassHighpassFilter.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.h(14,26): error C2061: синтаксическая ошибка: идентификатор "AudioBuffer"
+  (компиляция исходного файла "../../Source/LowpassHighpassFilter.cpp")
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(3,46): warning C4458: объявление "highpass" скрывает член класса
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.h(17,7):
+   см. объявление "LowpassHighpassFilter::highpass"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(7,54): warning C4458: объявление "cutoffFrequency" скрывает член класса
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.h(18,8):
+   см. объявление "LowpassHighpassFilter::cutoffFrequency"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(11,51): warning C4458: объявление "samplingRate" скрывает член класса
+  C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.h(19,8):
+   см. объявление "LowpassHighpassFilter::samplingRate"
+  
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(15,42): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(15,59): error C2761: "void LowpassHighpassFilter::processBlock(void)": повторное объявление члена запрещено.
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(15,48): error C7568: Список аргументов отсутствует после предполагаемого шаблона функции "AudioBuffer".
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(15,48): error C2062: тип "unknown-type" не требуется
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(16,5): error C2653: juce: не является именем класса или пространства имен
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(16,24): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\lissd\Documents\Lowpass and Highpass Filter\Lowpass and Highpass Filter\Source\LowpassHighpassFilter.cpp(16,24): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
