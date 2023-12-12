@@ -26,6 +26,7 @@ private:
     juce::Slider sliderFeedback;
     juce::Slider sliderVolume;
     juce::Slider sliderDistortion;
+    juce::Slider sliderBlend;
     juce::TextButton button{ "OFF" };
     juce::ComboBox styleMenu;
 

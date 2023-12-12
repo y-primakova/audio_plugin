@@ -35,6 +35,13 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     sliderDistortion.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
     sliderDistortion.addListener(this);
 
+    addAndMakeVisible(sliderBlend);
+    sliderBlend.setRange(0.0f, 1.0f);
+    sliderBlend.setValue(1.0f);
+    sliderBlend.setTextBoxStyle(juce::Slider::TextBoxBelow, 0, 100, 20);
+    sliderBlend.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
+    sliderBlend.addListener(this);
+
     addAndMakeVisible(button);
     button.onClick = [this]() { off(); };
 
@@ -61,7 +68,8 @@ void NewProjectAudioProcessorEditor::resized()
     sliderDelayMs.setBounds(getLocalBounds().removeFromBottom(getWidth() / 3) / 1.4);
     sliderFeedback.setBounds(getLocalBounds().removeFromTop(getWidth() / 3) / 1.4);
     sliderVolume.setBounds(getLocalBounds().removeFromRight(getWidth() / 3) / 1.4);
-    sliderDistortion.setBounds(getLocalBounds().removeFromLeft(getWidth() / 3) / 1.5);
+    sliderDistortion.setBounds(getLocalBounds().removeFromTop(getWidth() / 3).removeFromLeft(getWidth() / 3) / 1.4);
+    sliderBlend.setBounds(getLocalBounds().removeFromBottom(getWidth() / 3).removeFromLeft(getWidth() / 3) / 1.4);
     button.setBounds(getLocalBounds().removeFromBottom(getWidth() / 5));
     styleMenu.setBounds(getLocalBounds().removeFromTop(getWidth() / 10).removeFromRight(getWidth() / 3));
 }
@@ -79,6 +87,9 @@ void NewProjectAudioProcessorEditor::sliderValueChanged(juce::Slider* slider) {
     if (slider == &sliderDistortion) {
         audioProcessor.changeDistortion = sliderDistortion.getValue();
     }
+    if (slider == &sliderBlend) {
+        audioProcessor.changeBlend = sliderBlend.getValue();
+    }
 }
 
 void NewProjectAudioProcessorEditor::off() {
@@ -90,6 +101,8 @@ void NewProjectAudioProcessorEditor::off() {
     sliderVolume.setValue(1.0);
     audioProcessor.changeDistortion = 1.0;
     sliderDistortion.setValue(1.0);
+    audioProcessor.changeBlend = 1.0;
+    sliderBlend.setValue(1.0);
 }
 
 void NewProjectAudioProcessorEditor::styleMenuChanged()
@@ -97,14 +110,13 @@ void NewProjectAudioProcessorEditor::styleMenuChanged()
     switch (styleMenu.getSelectedId())
     {
     case 1: addAndMakeVisible(sliderDelayMs);
-            sliderDelayMs.addListener(this);
             addAndMakeVisible(sliderFeedback);
-            sliderDistortion.addListener(this);
             off();
             removeChildComponent(&sliderDistortion);
+            removeChildComponent(&sliderBlend);
             break;
     case 2: addAndMakeVisible(sliderDistortion);
-            sliderDistortion.addListener(this);
+            addAndMakeVisible(sliderBlend);
             off();
             removeChildComponent(&sliderDelayMs);
             removeChildComponent(&sliderFeedback);
@@ -112,9 +124,7 @@ void NewProjectAudioProcessorEditor::styleMenuChanged()
     case 3: addAndMakeVisible(sliderDelayMs);
             addAndMakeVisible(sliderFeedback);
             addAndMakeVisible(sliderDistortion);
-            sliderDelayMs.addListener(this);
-            sliderDistortion.addListener(this);
-            sliderDistortion.addListener(this);
+            addAndMakeVisible(sliderBlend);
             off();
             break;
     default: break;

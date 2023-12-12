@@ -1,5 +1,6 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include <corecrt_math_defines.h>
 
 NewProjectAudioProcessor::NewProjectAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -134,15 +135,17 @@ void NewProjectAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, ju
         auto* channelData = buffer.getWritePointer(channel);
         for (int sample = 0; sample < buffer.getNumSamples(); sample++)
         {
-            if (buffer.getSample(channel, sample) > changeDistortion)
+            channelData[sample] = buffer.getSample(channel, sample) / changeDistortion;
+            channelData[sample] = 2.0f / M_PI * atan(channelData[sample]) * changeBlend + channelData[sample] * (1.0f - changeBlend);
+            if (channelData[sample] > 1)
             {
-                channelData[sample] = changeDistortion;
+                channelData[sample] = 1;
             }
-            if (buffer.getSample(channel, sample) < (-1) * changeDistortion)
+            if (channelData[sample] < (-1))
             {
-                channelData[sample] = (-1) * changeDistortion;
+                channelData[sample] = (-1);
             }
-            channelData[sample] = buffer.getSample(channel, sample) * changeVolume;
+            channelData[sample] *= changeVolume;
         }
     }
 }

@@ -44,6 +44,7 @@ public:
     double changeFeedback;
     double changeVolume;
     double changeDistortion;
+    double changeBlend;
 
 
 private:
