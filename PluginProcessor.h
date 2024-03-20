@@ -10,18 +10,20 @@
 
 #include <JuceHeader.h>
 
+#include "../Builds/VisualStudio2022/LowpassHighpassFilter.h"
+
 //==============================================================================
 /**
 */
-class NewProjectAudioProcessor  : public juce::AudioProcessor
+class LowpassHighpassFilterAudioProcessor  : public juce::AudioProcessor
                             #if JucePlugin_Enable_ARA
                              , public juce::AudioProcessorARAExtension
                             #endif
 {
 public:
     //==============================================================================
-    NewProjectAudioProcessor();
-    ~NewProjectAudioProcessor() override;
+    LowpassHighpassFilterAudioProcessor();
+    ~LowpassHighpassFilterAudioProcessor() override;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -57,10 +59,14 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 private:
-    void fillBuffer(int channel, int bufferSize, int delayBufferSize, float* channelData);
-    void readFromBuffer(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer, int channel, int BufferSize, int delayBufferSize);
-    juce::AudioBuffer<float> delayBuffer;
-    int writePosition{ 0 };
+
+    // our plugin's parameters
+    juce::AudioProcessorValueTreeState parameters;
+    std::atomic<float>* cutoffFrequencyParameter = nullptr;
+    std::atomic<float>* highpassParameter = nullptr;
+
+    // the filter implemented in listings 1-3
+    LowpassHighpassFilter filter;
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NewProjectAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LowpassHighpassFilterAudioProcessor)
 };
