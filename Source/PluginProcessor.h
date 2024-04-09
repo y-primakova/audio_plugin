@@ -4,9 +4,6 @@
 
 
 class NewProjectAudioProcessor : public juce::AudioProcessor
-#if JucePlugin_Enable_ARA
-    , public juce::AudioProcessorARAExtension
-#endif
 {
 public:
     NewProjectAudioProcessor();
@@ -21,11 +18,12 @@ public:
 
     void processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
 
+
+    const juce::String getName() const override;
+
     juce::AudioProcessorEditor* createEditor() override;
+    
     bool hasEditor() const override;
-
-   const juce::String getName() const override;
-
     bool acceptsMidi() const override;
     bool producesMidi() const override;
     bool isMidiEffect() const override;
@@ -54,6 +52,9 @@ private:
 
     juce::AudioBuffer<float> delayBuffer;
     int writePosition{ 0 };
-    
+
+  
+
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewProjectAudioProcessor)
 };
