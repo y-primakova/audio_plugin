@@ -1,6 +1,9 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include <corecrt_math_defines.h>
+#include "delay.cpp"
+#include "distortion.cpp"
+#include "volume.cpp"
 
 NewProjectAudioProcessor::NewProjectAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -84,7 +87,7 @@ void NewProjectAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBl
 {
     auto delayBufferSize = sampleRate * 2.0;
     delayBuffer.setSize(getTotalNumOutputChannels(), (int)delayBufferSize);
-   
+
 }
 
 void NewProjectAudioProcessor::releaseResources()
@@ -123,7 +126,9 @@ void NewProjectAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, ju
 
     for (int channel = 0; channel < totalNumInputChannels; channel++)
     {
-        fillBuffer(buffer, channel);
+        auto x = fillBuff(buffer.getWritePointer(channel), delayBuffer.getWritePointer(channel), channel, writePosition, buffer.getNumSamples(), delayBuffer.getNumSamples());
+        delayBuffer.copyFrom(channel, 0, x, delayBuffer.getNumSamples());
+        //(float* buffer, float* delayBuffer, int channel, int writePosition, int bufferSize, int delayBufferSize)
         readFromBuffer(buffer, delayBuffer, channel);
         fillBuffer(buffer, channel);
     }
@@ -135,28 +140,20 @@ void NewProjectAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, ju
         auto* channelData = buffer.getWritePointer(channel);
         for (int sample = 0; sample < buffer.getNumSamples(); sample++)
         {
-            channelData[sample] = buffer.getSample(channel, sample) / changeDistortion;
-            channelData[sample] = 2.0f / M_PI * atan(channelData[sample]) * changeBlend + channelData[sample] * (1.0f - changeBlend);
-            if (channelData[sample] > 1)
-            {
-                channelData[sample] = 1;
-            }
-            if (channelData[sample] < (-1))
-            {
-                channelData[sample] = (-1);
-            }
-            channelData[sample] *= changeVolume;
+            channelData[sample] *= changeDistortion;
+            channelData[sample] = distortion(buffer.getSample(channel, sample), changeDistortion, changeBlend);
+            channelData[sample] = volume(channelData[sample], changeVolume);
         }
     }
 }
 
 
-void NewProjectAudioProcessor::fillBuffer(juce::AudioBuffer<float>& buffer, int channel) 
+void NewProjectAudioProcessor::fillBuffer(juce::AudioBuffer<float>& buffer, int channel)
 {
     auto bufferSize = buffer.getNumSamples();
     auto delayBufferSize = delayBuffer.getNumSamples();
 
-    if (delayBufferSize > bufferSize + writePosition) 
+    if (delayBufferSize > bufferSize + writePosition)
     {
         delayBuffer.copyFrom(channel, writePosition, buffer.getWritePointer(channel), bufferSize);
     }
@@ -198,7 +195,7 @@ void NewProjectAudioProcessor::readFromBuffer(juce::AudioBuffer<float>& buffer, 
     }
 }
 
-void NewProjectAudioProcessor::updateBufferPositions(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer) 
+void NewProjectAudioProcessor::updateBufferPositions(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer)
 {
     auto bufferSize = buffer.getNumSamples();
     auto delayBufferSize = delayBuffer.getNumSamples();
