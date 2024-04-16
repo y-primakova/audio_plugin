@@ -38,10 +38,7 @@ public:
 
     void NewProjectAudioProcessorEditor::off();
     void NewProjectAudioProcessorEditor::styleMenuChanged();
-<<<<<<< HEAD
     void NewProjectAudioProcessorEditor::openSettings(juce::Button* button);
-=======
->>>>>>> 166a0dcffd0f2dfe3fb6ea794afcbbe0c4dc0011
 
 private:
     NewProjectAudioProcessor& audioProcessor;
@@ -60,11 +57,8 @@ private:
     juce::Label distortionLabel;
     juce::Label blendLabel;
 
-<<<<<<< HEAD
     juce::ImageButton settingsButton;
 
-=======
->>>>>>> 166a0dcffd0f2dfe3fb6ea794afcbbe0c4dc0011
     //HighlightButtonLookAndFeel buttonLookAndFeel;
     juce::TextButton button{ "RESET" };
     juce::ComboBox styleMenu;

@@ -1,9 +1,6 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-<<<<<<< HEAD
 #include "SettingsDialog.h"
-=======
->>>>>>> 166a0dcffd0f2dfe3fb6ea794afcbbe0c4dc0011
 
 
 NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioProcessor& p)
@@ -62,7 +59,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(blendLabel);
     blendLabel.setText("BLEND", juce::dontSendNotification);
 
-<<<<<<< HEAD
+
     settingsButton.setImages(false, true, true,
         juce::ImageCache::getFromMemory(BinaryData::setting_png,
             BinaryData::setting_pngSize), 1.0f,
@@ -75,9 +72,8 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     settingsButton.onClick = [this] {openSettings(&settingsButton); };
 
     //addAndMakeVisible(styleMenu);
-=======
+
     addAndMakeVisible(styleMenu);
->>>>>>> 166a0dcffd0f2dfe3fb6ea794afcbbe0c4dc0011
     styleMenu.addItem("Settings", 1);
     styleMenu.addItem("Change your theme", 2);
     styleMenu.onChange = [this] { styleMenuChanged(); };
@@ -145,16 +141,14 @@ void NewProjectAudioProcessorEditor::resized()
     sliderBlend.setBounds(getWidth()/20 - getWidth()/40, getHeight() / 2 - sliderHeight, sliderWidth - 9, sliderHeight - 5);
     blendLabel.setBounds(getWidth()/20 + getWidth()/5, getHeight() / 2 - sliderHeight + 2.2*labelSize, sliderWidth - 9, sliderHeight - 5);
     
-    styleMenu.setBounds(getWidth() / 45, getHeight() / 20 - 10, getWidth() / 6, getHeight() / 12);
-    styleMenu.setColour(juce::ComboBox::backgroundColourId, juce::Colour(239, 233, 240));
-    styleMenu.setColour(juce::ComboBox::textColourId, juce::Colour(144, 128, 145));
-<<<<<<< HEAD
+    //styleMenu.setBounds(getWidth() / 45, getHeight() / 20 - 10, getWidth() / 6, getHeight() / 12);
+    //styleMenu.setColour(juce::ComboBox::backgroundColourId, juce::Colour(239, 233, 240));
+    //styleMenu.setColour(juce::ComboBox::textColourId, juce::Colour(144, 128, 145));
 
     int settingsHeight = 30;
     int settingsWidth = 30;
     settingsButton.setBounds(getWidth() / 45, getHeight() / 20, settingsWidth, settingsHeight);
-=======
->>>>>>> 166a0dcffd0f2dfe3fb6ea794afcbbe0c4dc0011
+
 }
 
 void NewProjectAudioProcessorEditor::sliderValueChanged(juce::Slider* slider) {
@@ -188,18 +182,56 @@ void NewProjectAudioProcessorEditor::off() {
     sliderBlend.setValue(1.0);
 }
 
-<<<<<<< HEAD
 void NewProjectAudioProcessorEditor::openSettings(juce::Button* button)
 {
     if (button == &settingsButton)
     {
-        SettingsDialog settingsDialog;
+    juce::PopupMenu themeSubMenu;
+        //themeSubMenu.addItem(101, "minions theme");
+       // themeSubMenu.addItem(102, "cats theme");
+
+        juce::PopupMenu settingsMenu;
+        settingsMenu.addSubMenu("change interface", themeSubMenu);
+        settingsMenu.addItem(2, "change effects");
+
+        //auto minionsIcon = juce::Drawable::createFromImageData(BinaryData::minionIcon_png, BinaryData::minionIcon_pngSize);
+        //auto catsIcon = juce::Drawable::createFromImageData(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
+        juce::Image minionsImage = juce::ImageCache::getFromMemory(BinaryData::minionsIcon_png, BinaryData::minionsIcon_pngSize);
+        juce::Image catImage = juce::ImageCache::getFromMemory(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
+
+        // Создание Drawable из изображений
+        auto* minionsIcon = new juce::DrawableImage();
+        minionsIcon->setImage(minionsImage);
+        auto* catsIcon = new juce::DrawableImage();
+        catsIcon->setImage(catImage);
+
+        themeSubMenu.addItem(101, "Minions Theme", true, false, minionsIcon);
+        themeSubMenu.addItem(102, "Cat Theme", true, false, catsIcon);
         
+
+        settingsMenu.showMenuAsync(juce::PopupMenu::Options().withTargetComponent(button),
+            [this](int result)
+            {
+                switch (result)
+                {
+                case 101:
+                    // Обработка выбора "Minions Theme"
+                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "theme", "Minions Theme выбрана");
+                    break;
+                case 102:
+                    // Обработка выбора "Cat Theme"
+                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "theme", "Cat Theme выбрана");
+                    break;
+                case 2:
+                    // Обработка выбора "Эффекты"
+                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "settings", "change effects");
+                    break;
+                }
+            });
     }
 }
 
-=======
->>>>>>> 166a0dcffd0f2dfe3fb6ea794afcbbe0c4dc0011
+
 void NewProjectAudioProcessorEditor::styleMenuChanged()
 {
     switch (styleMenu.getSelectedId())
