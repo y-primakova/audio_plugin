@@ -186,45 +186,33 @@ void NewProjectAudioProcessorEditor::openSettings(juce::Button* button)
 {
     if (button == &settingsButton)
     {
-    juce::PopupMenu themeSubMenu;
-        //themeSubMenu.addItem(101, "minions theme");
-       // themeSubMenu.addItem(102, "cats theme");
-
         juce::PopupMenu settingsMenu;
-        settingsMenu.addSubMenu("change interface", themeSubMenu);
-        settingsMenu.addItem(2, "change effects");
+        juce::PopupMenu themeSubMenu;
 
-        //auto minionsIcon = juce::Drawable::createFromImageData(BinaryData::minionIcon_png, BinaryData::minionIcon_pngSize);
-        //auto catsIcon = juce::Drawable::createFromImageData(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
-        juce::Image minionsImage = juce::ImageCache::getFromMemory(BinaryData::minionsIcon_png, BinaryData::minionsIcon_pngSize);
-        juce::Image catImage = juce::ImageCache::getFromMemory(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
+        juce::Image catIcon = juce::ImageCache::getFromMemory(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
+        juce::Image minionIcon = juce::ImageCache::getFromMemory(BinaryData::minionIcon_png, BinaryData::minionIcon_pngSize);
+        // Добавляем опции тем в подменю с "иконками" в виде эмодзи
+        themeSubMenu.addItem(101, "cats theme", true, false, catIcon);
+        themeSubMenu.addItem(102, "minions theme", true, false, minionIcon);
 
-        // Создание Drawable из изображений
-        auto* minionsIcon = new juce::DrawableImage();
-        minionsIcon->setImage(minionsImage);
-        auto* catsIcon = new juce::DrawableImage();
-        catsIcon->setImage(catImage);
+        // Добавляем подменю к основному меню "Интерфейс"
+        settingsMenu.addSubMenu("theme settings", themeSubMenu);
+        settingsMenu.addItem(2, "effects settings");
 
-        themeSubMenu.addItem(101, "Minions Theme", true, false, minionsIcon);
-        themeSubMenu.addItem(102, "Cat Theme", true, false, catsIcon);
-        
-
+        // Асинхронный вызов меню
         settingsMenu.showMenuAsync(juce::PopupMenu::Options().withTargetComponent(button),
             [this](int result)
             {
                 switch (result)
                 {
                 case 101:
-                    // Обработка выбора "Minions Theme"
-                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "theme", "Minions Theme выбрана");
+                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "theme", "cats theme");
                     break;
                 case 102:
-                    // Обработка выбора "Cat Theme"
-                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "theme", "Cat Theme выбрана");
+                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "theme", "minions theme");
                     break;
                 case 2:
-                    // Обработка выбора "Эффекты"
-                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "settings", "change effects");
+                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "settings", "effects");
                     break;
                 }
             });
