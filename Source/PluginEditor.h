@@ -59,6 +59,10 @@ private:
 
     juce::ImageButton settingsButton;
 
+    juce::Image backgroundImage;
+
+    juce::Font customFont;
+
     //HighlightButtonLookAndFeel buttonLookAndFeel;
     juce::TextButton button{ "RESET" };
     juce::ComboBox styleMenu;
