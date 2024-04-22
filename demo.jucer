@@ -3,7 +3,40 @@
 <JUCERPROJECT id="mrW7gW" name="demo" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="FzignU" name="demo">
+    <FILE id="dd0ppM" name="04766_BionicTypeShadow.ttf" compile="0" resource="1"
+          file="../nsu/plugin/04766_BionicTypeShadow.ttf"/>
+    <GROUP id="{2315F63C-51F8-25D7-6135-02680851955D}" name="resources">
+      <FILE id="WXdBoQ" name="catIcon.png" compile="0" resource="1" file="../Users/izmka/Downloads/catIcon.png"/>
+      <FILE id="XsU9H7" name="minionIcon.png" compile="0" resource="1" file="../Users/izmka/OneDrive/&#1048;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;/minionIcon.png"/>
+      <FILE id="REvMP0" name="setting.png" compile="0" resource="1" file="../Users/izmka/Downloads/setting.png"/>
+    </GROUP>
+    <GROUP id="{CF71C771-C69F-BEB7-FB9E-CCBF482F26E2}" name="knob">
+      <FILE id="Itk0dU" name="VerticalSlider.knob" compile="0" resource="1"
+            file="../nsu/plugin/knobs/VerticalSlider.knob"/>
+      <FILE id="x44Gjv" name="BSW_Knob_2.png" compile="0" resource="1" file="../nsu/plugin/knobs/BSW_Knob_2.png"/>
+      <FILE id="fyWqlM" name="BSW_Knob_2.knob" compile="0" resource="1" file="../nsu/plugin/knobs/BSW_Knob_2.knob"/>
+      <FILE id="B7wimO" name="VerticalSlider.png" compile="0" resource="1"
+            file="../nsu/plugin/knobs/VerticalSlider.png"/>
+      <FILE id="nyhfme" name="Vertical2.knob" compile="0" resource="1" file="../nsu/plugin/knobs/Vertical2.knob"/>
+      <FILE id="SzuBj1" name="Vertical2.png" compile="0" resource="1" file="../nsu/plugin/knobs/Vertical2.png"/>
+      <FILE id="Z3NwDL" name="rotarySl.knob" compile="0" resource="1" file="../Users/izmka/OneDrive/&#1056;&#1072;&#1073;&#1086;&#1095;&#1080;&#1081; &#1089;&#1090;&#1086;&#1083;/rotarySl.knob"/>
+    </GROUP>
     <GROUP id="{ADED4148-D014-4602-7D1C-47B69B00AFB1}" name="Source">
+      <FILE id="nCWpdK" name="MenuItemWithIcon.cpp" compile="1" resource="0"
+            file="Source/MenuItemWithIcon.cpp"/>
+      <FILE id="hqp7EQ" name="MenuItemWithIcon.h" compile="0" resource="0"
+            file="Source/MenuItemWithIcon.h"/>
+      <FILE id="kZpSII" name="SettingsDialog.cpp" compile="1" resource="0"
+            file="Source/SettingsDialog.cpp"/>
+      <FILE id="ky4W4U" name="SettingsDialog.h" compile="0" resource="0"
+            file="Source/SettingsDialog.h"/>
+      <FILE id="lH1xr0" name="EmbeddedFonts.cpp" compile="1" resource="0"
+            file="Source/EmbeddedFonts.cpp"/>
+      <FILE id="wkPNXN" name="EmbeddedFonts.h" compile="0" resource="0" file="Source/EmbeddedFonts.h"/>
+      <FILE id="Xlmm9c" name="LookAndFeelCustom.cpp" compile="1" resource="0"
+            file="Source/LookAndFeelCustom.cpp"/>
+      <FILE id="oNa16k" name="LookAndFeelCustom.h" compile="0" resource="0"
+            file="Source/LookAndFeelCustom.h"/>
       <FILE id="N0LH5v" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="l9hQmS" name="PluginProcessor.h" compile="0" resource="0"

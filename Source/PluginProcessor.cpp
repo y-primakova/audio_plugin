@@ -20,6 +20,8 @@ NewProjectAudioProcessor::~NewProjectAudioProcessor()
 {
 }
 
+
+
 const juce::String NewProjectAudioProcessor::getName() const
 {
     return JucePlugin_Name;
@@ -65,6 +67,16 @@ int NewProjectAudioProcessor::getNumPrograms()
 int NewProjectAudioProcessor::getCurrentProgram()
 {
     return 0;
+}
+
+bool NewProjectAudioProcessor::hasEditor() const
+{
+    return true; // (change this to false if you choose to not supply an editor)
+}
+
+juce::AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
+{
+    return new NewProjectAudioProcessorEditor(*this);
 }
 
 void NewProjectAudioProcessor::setCurrentProgram(int index)
@@ -207,23 +219,19 @@ void NewProjectAudioProcessor::updateBufferPositions(juce::AudioBuffer<float>& b
     writePosition %= delayBufferSize;
 }
 
-bool NewProjectAudioProcessor::hasEditor() const
-{
-    return true;
-}
-
-juce::AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
-{
-    return new NewProjectAudioProcessorEditor(*this);
-}
-
 void NewProjectAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
 {
+    // You should use this method to store your parameters in the memory block.
+    // You could do that either as raw data, or use the XML or ValueTree classes
+    // as intermediaries to make it easy to save and load complex data.
 }
 
 void NewProjectAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
+    // You should use this method to restore your parameters from this memory block,
+    // whose contents will have been created by the getStateInformation() call.
 }
+
 
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
