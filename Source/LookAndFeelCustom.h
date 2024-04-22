@@ -21,7 +21,6 @@ class LookAndFeelCustom  : public juce::LookAndFeel_V4
 {
 public:
     LookAndFeelCustom();
-    //virtual ~LookAndFeelCustom();
 
 	void drawRotarySlider(juce::Graphics& g,
 		int 	x,
@@ -44,6 +43,12 @@ public:
 		juce::Slider::SliderStyle,
 		juce::Slider& slider) override;
 
+	void drawPopupMenuItem(juce::Graphics& g, const juce::Rectangle<int>& area,
+		const bool isSeparator, const bool isActive,
+		const bool isHighlighted, const bool isTicked,
+		const bool hasSubMenu, const juce::String& text,
+		const juce::String& shortcutKeyText,
+		const juce::Drawable* icon, const juce::Colour* textColour) override;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LookAndFeelCustom)

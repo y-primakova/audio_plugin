@@ -6,8 +6,13 @@
 NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioProcessor& p)
     : AudioProcessorEditor(&p), audioProcessor(p)
 {   
+    backgroundImage = juce::ImageCache::getFromMemory(BinaryData::background_png, BinaryData::background_pngSize);
     setSize(650, 380);
    // button.setLookAndFeel(&buttonLookAndFeel);
+    auto fontData = juce::Typeface::createSystemTypefaceFor(BinaryData::SfOuterLimits_ttf,
+        BinaryData::SfOuterLimits_ttfSize);
+    customFont = juce::Font(fontData);
+    customFont.setHeight(14.0f);
 
     //addAndMakeVisible(button);
     button.onClick = [this]() { off(); };
@@ -46,18 +51,23 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
 
     addAndMakeVisible(delayLabel);
     delayLabel.setText("DELAY", juce::dontSendNotification);
+    delayLabel.setFont(customFont);
     
     addAndMakeVisible(volumeLabel);
     volumeLabel.setText("VOLUME", juce::dontSendNotification);
+    volumeLabel.setFont(customFont);
 
     addAndMakeVisible(feedbackLabel);
     feedbackLabel.setText("FEEDBACK", juce::dontSendNotification);
+    feedbackLabel.setFont(customFont);
 
     addAndMakeVisible(distortionLabel);
     distortionLabel.setText("DISTORTION", juce::dontSendNotification);
+    distortionLabel.setFont(customFont);
 
     addAndMakeVisible(blendLabel);
     blendLabel.setText("BLEND", juce::dontSendNotification);
+    blendLabel.setFont(customFont);
 
 
     settingsButton.setImages(false, true, true,
@@ -88,7 +98,8 @@ NewProjectAudioProcessorEditor::~NewProjectAudioProcessorEditor()
 //==============================================================================
 void NewProjectAudioProcessorEditor::paint(juce::Graphics& g)
 {
-    g.fillAll(juce::Colour(115, 98, 99));
+    //g.fillAll(juce::Colour(115, 98, 99));
+    g.drawImageAt(backgroundImage, 0, 0);
 
     g.setColour(juce::Colour(205, 192, 207));
     int radius = getWidth() / 8.3;
@@ -129,11 +140,11 @@ void NewProjectAudioProcessorEditor::resized()
 
     sliderFeedback.setBounds(getWidth()/2 + getWidth() / 15, getHeight() / 7 + sliderHeight - 40, sliderWidth, sliderHeight);
     sliderFeedback.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 60, 20);
-    feedbackLabel.setBounds(getWidth()/2 + getWidth()/3.5, getHeight() / 7 + sliderHeight + labelSize, sliderWidth - labelSize, sliderHeight - labelSize);
+    feedbackLabel.setBounds(getWidth()/2 + getWidth()/3.8, getHeight() / 7 + sliderHeight + labelSize, sliderWidth - labelSize, sliderHeight - labelSize);
 
     sliderVolume.setBounds(getWidth() / 2 - getWidth()/15 - sliderWidth/3, getHeight() / 5 + sliderHeight/3, sliderWidth - sliderWidth/20, sliderHeight - sliderWidth / 20);
-    sliderVolume.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 60, 20);
-    volumeLabel.setBounds(getWidth() / 2 - getWidth()/30, getHeight() / 5 + sliderHeight / 3 + labelSize, 50, 200);
+    sliderVolume.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 150, 50);
+    volumeLabel.setBounds(getWidth() / 2 - getWidth()/21, getHeight() / 5 + sliderHeight / 3 + labelSize, 100, 200);
 
     sliderDistortion.setBounds(getWidth()/2 - getWidth()/20, getHeight() / 2 - sliderHeight, sliderWidth - 9, sliderHeight - 5);
     distortionLabel.setBounds(getWidth()/2 + getWidth()/6.8, getHeight() / 2 - sliderHeight + 4*labelSize, 100, 100);
@@ -187,7 +198,15 @@ void NewProjectAudioProcessorEditor::openSettings(juce::Button* button)
     if (button == &settingsButton)
     {
         juce::PopupMenu settingsMenu;
+        settingsMenu.setLookAndFeel(&customLookAndFeel);
+
+       /*juce::PopupMenu::Options options;
+        options.withMinimumWidth(500)  // Минимальная ширина каждого элемента меню
+            .withMaximumNumColumns(1)
+            .withStandardItemHeight(80);*/
+
         juce::PopupMenu themeSubMenu;
+        themeSubMenu.setLookAndFeel(&customLookAndFeel);
 
         juce::Image catIcon = juce::ImageCache::getFromMemory(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
         juce::Image minionIcon = juce::ImageCache::getFromMemory(BinaryData::minionIcon_png, BinaryData::minionIcon_pngSize);
@@ -199,8 +218,11 @@ void NewProjectAudioProcessorEditor::openSettings(juce::Button* button)
         settingsMenu.addSubMenu("theme settings", themeSubMenu);
         settingsMenu.addItem(2, "effects settings");
 
+        juce::PopupMenu::Options options;
+        options = options.withMinimumWidth(200).withStandardItemHeight(80).withTargetComponent(button);
+
         // Асинхронный вызов меню
-        settingsMenu.showMenuAsync(juce::PopupMenu::Options().withTargetComponent(button),
+        settingsMenu.showMenuAsync(options,
             [this](int result)
             {
                 switch (result)

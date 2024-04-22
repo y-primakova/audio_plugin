@@ -16,8 +16,7 @@ using namespace juce;
 //==============================================================================
 LookAndFeelCustom::LookAndFeelCustom()
 {
-    //setColour(Slider::thumbColourId, Colours::yellow);
-    //setColour(Slider::trackColourId, Colour(0x7f000000));
+    setColour(juce::PopupMenu::backgroundColourId, juce::Colour(0xff222222));
 
 }
 
@@ -46,6 +45,11 @@ void LookAndFeelCustom::drawRotarySlider(Graphics& g, int x, int y, int width, i
         myKitty.getWidth(),
         myKitty.getWidth()); //Source
 
+    slider.setColour(Slider::textBoxOutlineColourId, Colours::transparentBlack);
+
+    slider.setColour(Slider::textBoxTextColourId, Colours::white);
+
+
 }
 
 void LookAndFeelCustom::drawLinearSlider(juce::Graphics& g,
@@ -73,32 +77,66 @@ void LookAndFeelCustom::drawLinearSlider(juce::Graphics& g,
         0, frameIdx * linearSlider.getHeight(), linearSlider.getWidth(), linearSlider.getHeight());
 }
     
-
-
-
-/*void LookAndFeelCustom::paint(juce::Graphics& g)
+void LookAndFeelCustom::drawPopupMenuItem(juce::Graphics& g, const juce::Rectangle<int>& area,
+    const bool isSeparator, const bool isActive,
+    const bool isHighlighted, const bool isTicked,
+    const bool hasSubMenu, const juce::String& text,
+    const juce::String& shortcutKeyText,
+    const juce::Drawable* icon, const juce::Colour* textColour)
 {
-    /* This demo code just fills the component's background and
-       draws some placeholder text to get you started.
+    juce::Rectangle<int> r(area);
 
-       You should replace everything in this method with your own
-       drawing code..
+    // Настройка цветов для фона элемента
+    juce::Colour backgroundColour = isHighlighted ? findColour(juce::PopupMenu::highlightedBackgroundColourId)
+        : findColour(juce::PopupMenu::backgroundColourId);
+    juce::Colour textColourToUse = textColour != nullptr ? *textColour
+        : findColour(juce::PopupMenu::textColourId);
+
+    // Фон элемента
+    g.setColour(backgroundColour);
+    g.fillRect(r);
+
+    // Если это разделитель, рисуем линию
+    if (isSeparator)
+    {
+        g.setColour(backgroundColour.contrasting(0.2f));
+        g.fillRect(r.removeFromTop(1));
+        return;
+    }
+
+    // Отступ для текста и иконки
+    juce::Rectangle<int> iconArea = r.removeFromLeft((int)(r.getHeight() * 1.2f));
+    int textLeftMargin = 10;
+
+    // Иконка, если есть
+    if (icon != nullptr)
+    {
+        icon->drawWithin(g, iconArea.toFloat(), juce::RectanglePlacement::centred, 1.0f);
+        textLeftMargin = (int)(iconArea.getRight() + 5);
+    }
     
 
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));   // clear the background
+    // Текст элемента
+    r.removeFromLeft(textLeftMargin);
+    g.setColour(textColourToUse);
+    g.setFont(juce::Font(16.0f));
+    g.drawText(text, r, juce::Justification::centredLeft, true);
 
-    g.setColour (juce::Colours::grey);
-    g.drawRect (getLocalBounds(), 1);   // draw an outline around the component
+    // Субменю стрелка, если есть
+    if (hasSubMenu)
+    {
+        juce::Path subMenuArrow;
+        subMenuArrow.addTriangle(r.getRight() - 20, r.getCentreY() - 3,
+            r.getRight() - 10, r.getCentreY(),
+            r.getRight() - 20, r.getCentreY() + 3);
+        g.setColour(textColourToUse);
+        g.fillPath(subMenuArrow);
+    }
 
-    g.setColour (juce::Colours::white);
-    g.setFont (14.0f);
-    g.drawText ("LookAndFeelCustom", getLocalBounds(),
-                juce::Justification::centred, true);   // draw some placeholder text
+    // Краткий текст для быстрых клавиш
+    if (!shortcutKeyText.isEmpty())
+    {
+        g.setColour(textColourToUse.withAlpha(0.6f));  // Полупрозрачный для краткости
+        g.drawText(shortcutKeyText, r, juce::Justification::centredRight, true);
+    }
 }
-
-void LookAndFeelCustom::resized()
-{
-    // This method is where you should set the bounds of any child
-    // components that your component contains..
-
-}*/
