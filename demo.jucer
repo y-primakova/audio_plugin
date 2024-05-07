@@ -1,16 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="fFVqT9" name="demo" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="mrW7gW" name="demo" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
-  <MAINGROUP id="KQwIgb" name="demo">
-    <GROUP id="{66523E6A-F49D-E5B9-E832-85354BDD2240}" name="Source">
-      <FILE id="qgl2Uo" name="PluginProcessor.cpp" compile="1" resource="0"
+  <MAINGROUP id="FzignU" name="demo">
+    <GROUP id="{3DE25842-5FF8-8D2D-4352-A7CB0D8EB103}" name="resources">
+      <GROUP id="{AAF450FB-40CC-6912-B738-176D84D5A464}" name="fonts">
+        <FILE id="FWYbe4" name="Droidlover3Dei.ttf" compile="0" resource="1"
+              file="resources/fonts/Droidlover3Dei.ttf"/>
+        <FILE id="voL9Nf" name="GenocideRmx.ttf" compile="0" resource="1" file="resources/fonts/GenocideRmx.ttf"/>
+        <FILE id="GoUJHX" name="infinitys.ttf" compile="0" resource="1" file="resources/fonts/infinitys.ttf"/>
+        <FILE id="bohIZJ" name="KrKatsFlowers3.ttf" compile="0" resource="1"
+              file="resources/fonts/KrKatsFlowers3.ttf"/>
+        <FILE id="xDVq68" name="SfOuterLimits.ttf" compile="0" resource="1"
+              file="resources/fonts/SfOuterLimits.ttf"/>
+        <FILE id="rH8O1g" name="TelidonrgItalic.ttf" compile="0" resource="1"
+              file="resources/fonts/TelidonrgItalic.ttf"/>
+      </GROUP>
+      <GROUP id="{47E2BEF4-7F8F-9BE7-E4AD-5BF5055DF338}" name="knob">
+        <FILE id="MNhvGM" name="BOS_button_pwr_18x18_6f.knob" compile="0" resource="1"
+              file="resources/knob/BOS_button_pwr_18x18_6f.knob"/>
+        <FILE id="JyLGhg" name="BSW_Knob_2.knob" compile="0" resource="1" file="resources/knob/BSW_Knob_2.knob"/>
+        <FILE id="NGxLNv" name="BSW_Knob_2.png" compile="0" resource="1" file="resources/knob/BSW_Knob_2.png"/>
+        <FILE id="hso3Ch" name="rotarySl.knob" compile="0" resource="1" file="resources/knob/rotarySl.knob"/>
+        <FILE id="eeILlo" name="Vertical2.knob" compile="0" resource="1" file="resources/knob/Vertical2.knob"/>
+        <FILE id="v8uWiV" name="Vertical2.png" compile="0" resource="1" file="resources/knob/Vertical2.png"/>
+        <FILE id="QE9PcM" name="VerticalSlider.knob" compile="0" resource="1"
+              file="resources/knob/VerticalSlider.knob"/>
+        <FILE id="XxyK5z" name="VerticalSlider.png" compile="0" resource="1"
+              file="resources/knob/VerticalSlider.png"/>
+      </GROUP>
+      <FILE id="SChMoL" name="background.png" compile="0" resource="1" file="resources/background.png"/>
+      <FILE id="AiWPi7" name="catIcon.png" compile="0" resource="1" file="resources/catIcon.png"/>
+      <FILE id="T88jfR" name="minionIcon.png" compile="0" resource="1" file="resources/minionIcon.png"/>
+      <FILE id="Z0bhIP" name="setting.png" compile="0" resource="1" file="resources/setting.png"/>
+    </GROUP>
+    <GROUP id="{ADED4148-D014-4602-7D1C-47B69B00AFB1}" name="Source">
+      <FILE id="kZpSII" name="SettingsDialog.cpp" compile="1" resource="0"
+            file="Source/SettingsDialog.cpp"/>
+      <FILE id="ky4W4U" name="SettingsDialog.h" compile="0" resource="0"
+            file="Source/SettingsDialog.h"/>
+      <FILE id="lH1xr0" name="EmbeddedFonts.cpp" compile="1" resource="0"
+            file="Source/EmbeddedFonts.cpp"/>
+      <FILE id="wkPNXN" name="EmbeddedFonts.h" compile="0" resource="0" file="Source/EmbeddedFonts.h"/>
+      <FILE id="Xlmm9c" name="LookAndFeelCustom.cpp" compile="1" resource="0"
+            file="Source/LookAndFeelCustom.cpp"/>
+      <FILE id="oNa16k" name="LookAndFeelCustom.h" compile="0" resource="0"
+            file="Source/LookAndFeelCustom.h"/>
+      <FILE id="N0LH5v" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
-      <FILE id="YnGfz7" name="PluginProcessor.h" compile="0" resource="0"
+      <FILE id="l9hQmS" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="HcSOte" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="IGl2lY" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="o1S7oo" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="KCA56d" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
@@ -32,8 +74,8 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="demo" headerPath="&quot;$(USERPROFILE)\Documents\reverb\effects&quot;"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="demo"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="delay" headerPath="&quot;C:\audio_plugin\effects&quot;"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="delay" headerPath="&quot;C:\audio_plugin\effects&quot;"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
