@@ -12,17 +12,17 @@
 
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_audio_processors/juce_audio_processors.h>
-
+using namespace juce;
 
 //==============================================================================
 /*
 */
-class LookAndFeelCustom  : public juce::LookAndFeel_V4
+class LookAndFeelCustom  : public LookAndFeel_V4
 {
 public:
     LookAndFeelCustom();
 
-	void drawRotarySlider(juce::Graphics& g,
+	void drawRotarySlider(Graphics& g,
 		int 	x,
 		int 	y,
 		int 	width,
@@ -30,9 +30,9 @@ public:
 		float 	sliderPosProportional,
 		float 	rotaryStartAngle,
 		float 	rotaryEndAngle,
-		juce::Slider& slider) override;
+		Slider& slider) override;
 
-	void drawLinearSlider(juce::Graphics& g,
+	void drawLinearSlider(Graphics& g,
 		int 	x,
 		int 	y,
 		int 	width,
@@ -40,16 +40,19 @@ public:
 		float 	sliderPos,
 		float 	minSliderPos,
 		float 	maxSliderPos,
-		juce::Slider::SliderStyle,
-		juce::Slider& slider) override;
+		Slider::SliderStyle,
+		Slider& slider) override;
 
-	void drawPopupMenuItem(juce::Graphics& g, const juce::Rectangle<int>& area,
+	void drawPopupMenuItem(Graphics& g, const Rectangle<int>& area,
 		const bool isSeparator, const bool isActive,
 		const bool isHighlighted, const bool isTicked,
-		const bool hasSubMenu, const juce::String& text,
-		const juce::String& shortcutKeyText,
-		const juce::Drawable* icon, const juce::Colour* textColour) override;
+		const bool hasSubMenu, const String& text,
+		const String& shortcutKeyText,
+		const Drawable* icon, const Colour* textColour) override;
+
+	Font getLabelFont(Label& label) override;
 
 private:
+	Font textFont;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LookAndFeelCustom)
 };

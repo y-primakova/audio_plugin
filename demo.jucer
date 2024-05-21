@@ -1,47 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="mrW7gW" name="demo" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="1" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="FzignU" name="demo">
     <GROUP id="{2315F63C-51F8-25D7-6135-02680851955D}" name="resources">
       <GROUP id="{D88BF0D3-DBC6-62F7-CCC0-D23AA85C78B0}" name="fonts">
-        <FILE id="dd0ppM" name="04766_BionicTypeShadow.ttf" compile="0" resource="1"
-              file="../nsu/plugin/04766_BionicTypeShadow.ttf"/>
-        <FILE id="Ufv9k8" name="infinitys.ttf" compile="0" resource="1" file="../Users/izmka/Downloads/infinitys.ttf"/>
-        <FILE id="f85oxE" name="TelidonrgItalic.ttf" compile="0" resource="1"
-              file="../Users/izmka/Downloads/TelidonrgItalic.ttf"/>
-        <FILE id="Jl0pKF" name="Droidlover3Dei.ttf" compile="0" resource="1"
-              file="../Users/izmka/Downloads/Droidlover3Dei.ttf"/>
-        <FILE id="xC9LZF" name="GenocideRmx.ttf" compile="0" resource="1" file="../Users/izmka/Downloads/GenocideRmx.ttf"/>
-        <FILE id="x6K983" name="KrKatsFlowers3.ttf" compile="0" resource="1"
-              file="../Users/izmka/Downloads/KrKatsFlowers3.ttf"/>
-        <FILE id="YxWr4T" name="SfOuterLimits.ttf" compile="0" resource="1"
-              file="../Users/izmka/Downloads/SfOuterLimits.ttf"/>
+        <FILE id="jiU8bR" name="GenocideRmx.ttf" compile="0" resource="1" file="resources/fonts/GenocideRmx.ttf"/>
+        <FILE id="aNtZnu" name="Droidlover3Dei.ttf" compile="0" resource="1"
+              file="resources/fonts/Droidlover3Dei.ttf"/>
+        <FILE id="Op9fDz" name="SfOuterLimits.ttf" compile="0" resource="1"
+              file="resources/fonts/SfOuterLimits.ttf"/>
       </GROUP>
-      <FILE id="WXdBoQ" name="catIcon.png" compile="0" resource="1" file="../Users/izmka/Downloads/catIcon.png"/>
-      <FILE id="U85L4S" name="background.png" compile="0" resource="1" file="../Users/izmka/Downloads/background.png"/>
-      <FILE id="XsU9H7" name="minionIcon.png" compile="0" resource="1" file="../Users/izmka/OneDrive/&#1048;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;/minionIcon.png"/>
-      <FILE id="REvMP0" name="setting.png" compile="0" resource="1" file="../Users/izmka/Downloads/setting.png"/>
     </GROUP>
+    <FILE id="pP4TSD" name="minionSl.png" compile="0" resource="1" file="resources/minionSl.png"/>
+    <FILE id="jJ5FCu" name="off.png" compile="0" resource="1" file="resources/off.png"/>
+    <FILE id="Qx7dqg" name="background6.png" compile="0" resource="1" file="resources/background6.png"/>
+    <FILE id="AoD0Ei" name="background5.png" compile="0" resource="1" file="resources/background5.png"/>
+    <FILE id="P3gSMw" name="setting.png" compile="0" resource="1" file="resources/setting.png"/>
+    <FILE id="NwYMky" name="background.png" compile="0" resource="1" file="resources/background.png"/>
+    <FILE id="mQwjjr" name="background3.png" compile="0" resource="1" file="resources/background3.png"/>
+    <FILE id="ez4mPH" name="background2.png" compile="0" resource="1" file="resources/background2.png"/>
+    <FILE id="QUhZNI" name="catIcon.png" compile="0" resource="1" file="resources/catIcon.png"/>
+    <FILE id="B9mckU" name="background4.png" compile="0" resource="1" file="resources/background4.png"/>
+    <FILE id="lISnDh" name="starIcon.png" compile="0" resource="1" file="resources/starIcon.png"/>
+    <FILE id="YV0se3" name="minionIcon.png" compile="0" resource="1" file="resources/minionIcon.png"/>
     <GROUP id="{CF71C771-C69F-BEB7-FB9E-CCBF482F26E2}" name="knob">
-      <FILE id="Itk0dU" name="VerticalSlider.knob" compile="0" resource="1"
-            file="../nsu/plugin/knobs/VerticalSlider.knob"/>
-      <FILE id="Lhk5Hy" name="BSW_Knob_2.knob" compile="0" resource="1" file="../nsu/plugin/knobs/BSW_Knob_2.knob"/>
-      <FILE id="eN9Zxk" name="BSW_Knob_2.png" compile="0" resource="1" file="../nsu/plugin/knobs/BSW_Knob_2.png"/>
-      <FILE id="B7wimO" name="VerticalSlider.png" compile="0" resource="1"
-            file="../nsu/plugin/knobs/VerticalSlider.png"/>
-      <FILE id="nyhfme" name="Vertical2.knob" compile="0" resource="1" file="../nsu/plugin/knobs/Vertical2.knob"/>
-      <FILE id="SzuBj1" name="Vertical2.png" compile="0" resource="1" file="../nsu/plugin/knobs/Vertical2.png"/>
-      <FILE id="Z3NwDL" name="rotarySl.knob" compile="0" resource="1" file="../Users/izmka/OneDrive/&#1056;&#1072;&#1073;&#1086;&#1095;&#1080;&#1081; &#1089;&#1090;&#1086;&#1083;/rotarySl.knob"/>
+      <FILE id="fX7aYw" name="cat2.png" compile="0" resource="1" file="resources/knob/cat2.png"/>
+      <FILE id="j1Pi15" name="cat3.knob" compile="0" resource="1" file="resources/knob/cat3.knob"/>
+      <FILE id="QvC2L9" name="cat3.png" compile="0" resource="1" file="resources/knob/cat3.png"/>
+      <FILE id="idiB0U" name="cat4.knob" compile="0" resource="1" file="resources/knob/cat4.knob"/>
+      <FILE id="ndcDlB" name="cat4.png" compile="0" resource="1" file="resources/knob/cat4.png"/>
+      <FILE id="A8kYWr" name="cat5.knob" compile="0" resource="1" file="resources/knob/cat5.knob"/>
+      <FILE id="OpAqbj" name="cat5.png" compile="0" resource="1" file="resources/knob/cat5.png"/>
+      <FILE id="m2QHvy" name="rotarySl.knob" compile="0" resource="1" file="resources/knob/rotarySl.knob"/>
+      <FILE id="I7ME9l" name="Vertical2.knob" compile="0" resource="1" file="resources/knob/Vertical2.knob"/>
+      <FILE id="Zn8CvE" name="minionSlider.knob" compile="0" resource="1"
+            file="resources/knob/minionSlider.knob"/>
+      <FILE id="NRtAQF" name="minionSlider.png" compile="0" resource="1"
+            file="resources/knob/minionSlider.png"/>
+      <FILE id="O7A5zz" name="Vertical2.png" compile="0" resource="1" file="resources/knob/Vertical2.png"/>
+      <FILE id="XEWpjx" name="VerticalSlider.knob" compile="0" resource="1"
+            file="resources/knob/VerticalSlider.knob"/>
+      <FILE id="fc0pmG" name="VerticalSlider.png" compile="0" resource="1"
+            file="resources/knob/VerticalSlider.png"/>
+      <FILE id="YhhvnC" name="basicSlider.png" compile="0" resource="1" file="resources/knob/basicSlider.png"/>
+      <FILE id="mKDEpX" name="basicSlider.knob" compile="0" resource="1"
+            file="resources/knob/basicSlider.knob"/>
+      <FILE id="EDDt77" name="cat1.knob" compile="0" resource="1" file="resources/knob/cat1.knob"/>
+      <FILE id="bo9gGS" name="cat1.png" compile="0" resource="1" file="resources/knob/cat1.png"/>
+      <FILE id="hlBe9R" name="cat2.knob" compile="0" resource="1" file="resources/knob/cat2.knob"/>
     </GROUP>
     <GROUP id="{ADED4148-D014-4602-7D1C-47B69B00AFB1}" name="Source">
+      <FILE id="BUNDDM" name="LookAndFeelBasic.cpp" compile="1" resource="0"
+            file="Source/LookAndFeelBasic.cpp"/>
+      <FILE id="IUL7d4" name="LookAndFeelBasic.h" compile="0" resource="0"
+            file="Source/LookAndFeelBasic.h"/>
+      <FILE id="Sr8ouM" name="LookAndFeelMinion.cpp" compile="1" resource="0"
+            file="Source/LookAndFeelMinion.cpp"/>
+      <FILE id="Y2xNAy" name="LookAndFeelMinion.h" compile="0" resource="0"
+            file="Source/LookAndFeelMinion.h"/>
       <FILE id="kZpSII" name="SettingsDialog.cpp" compile="1" resource="0"
             file="Source/SettingsDialog.cpp"/>
       <FILE id="ky4W4U" name="SettingsDialog.h" compile="0" resource="0"
             file="Source/SettingsDialog.h"/>
-      <FILE id="lH1xr0" name="EmbeddedFonts.cpp" compile="1" resource="0"
-            file="Source/EmbeddedFonts.cpp"/>
-      <FILE id="wkPNXN" name="EmbeddedFonts.h" compile="0" resource="0" file="Source/EmbeddedFonts.h"/>
       <FILE id="Xlmm9c" name="LookAndFeelCustom.cpp" compile="1" resource="0"
             file="Source/LookAndFeelCustom.cpp"/>
       <FILE id="oNa16k" name="LookAndFeelCustom.h" compile="0" resource="0"

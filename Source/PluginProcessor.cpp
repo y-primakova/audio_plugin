@@ -1,15 +1,16 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include <corecrt_math_defines.h>
+using namespace juce;
 
 NewProjectAudioProcessor::NewProjectAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
     : AudioProcessor(BusesProperties()
 #if ! JucePlugin_IsMidiEffect
 #if ! JucePlugin_IsSynth
-        .withInput("Input", juce::AudioChannelSet::stereo(), true)
+        .withInput("Input", AudioChannelSet::stereo(), true)
 #endif
-        .withOutput("Output", juce::AudioChannelSet::stereo(), true)
+        .withOutput("Output", AudioChannelSet::stereo(), true)
 #endif
     )
 #endif
@@ -22,7 +23,7 @@ NewProjectAudioProcessor::~NewProjectAudioProcessor()
 
 
 
-const juce::String NewProjectAudioProcessor::getName() const
+const String NewProjectAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
@@ -71,10 +72,10 @@ int NewProjectAudioProcessor::getCurrentProgram()
 
 bool NewProjectAudioProcessor::hasEditor() const
 {
-    return true; // (change this to false if you choose to not supply an editor)
+    return true; 
 }
 
-juce::AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
+AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
 {
     return new NewProjectAudioProcessorEditor(*this);
 }
@@ -83,12 +84,12 @@ void NewProjectAudioProcessor::setCurrentProgram(int index)
 {
 }
 
-const juce::String NewProjectAudioProcessor::getProgramName(int index)
+const String NewProjectAudioProcessor::getProgramName(int index)
 {
     return {};
 }
 
-void NewProjectAudioProcessor::changeProgramName(int index, const juce::String& newName)
+void NewProjectAudioProcessor::changeProgramName(int index, const String& newName)
 {
 }
 
@@ -107,11 +108,11 @@ void NewProjectAudioProcessor::releaseResources()
 bool NewProjectAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
 #if JucePlugin_IsMidiEffect
-    juce::ignoreUnused(layouts);
+    ignoreUnused(layouts);
     return true;
 #else
-    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::mono()
-        && layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
+    if (layouts.getMainOutputChannelSet() != AudioChannelSet::mono()
+        && layouts.getMainOutputChannelSet() != AudioChannelSet::stereo())
         return false;
 
 #if ! JucePlugin_IsSynth
@@ -124,9 +125,9 @@ bool NewProjectAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts
 }
 #endif
 
-void NewProjectAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void NewProjectAudioProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
-    juce::ScopedNoDenormals noDenormals;
+    ScopedNoDenormals noDenormals;
     auto totalNumInputChannels = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
@@ -163,7 +164,7 @@ void NewProjectAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, ju
 }
 
 
-void NewProjectAudioProcessor::fillBuffer(juce::AudioBuffer<float>& buffer, int channel) 
+void NewProjectAudioProcessor::fillBuffer(AudioBuffer<float>& buffer, int channel) 
 {
     auto bufferSize = buffer.getNumSamples();
     auto delayBufferSize = delayBuffer.getNumSamples();
@@ -185,7 +186,7 @@ void NewProjectAudioProcessor::fillBuffer(juce::AudioBuffer<float>& buffer, int 
 
 }
 
-void NewProjectAudioProcessor::readFromBuffer(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer, int channel)
+void NewProjectAudioProcessor::readFromBuffer(AudioBuffer<float>& buffer, AudioBuffer<float>& delayBuffer, int channel)
 {
     auto bufferSize = buffer.getNumSamples();
     auto delayBufferSize = delayBuffer.getNumSamples();
@@ -210,7 +211,7 @@ void NewProjectAudioProcessor::readFromBuffer(juce::AudioBuffer<float>& buffer, 
     }
 }
 
-void NewProjectAudioProcessor::updateBufferPositions(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer) 
+void NewProjectAudioProcessor::updateBufferPositions(AudioBuffer<float>& buffer, AudioBuffer<float>& delayBuffer) 
 {
     auto bufferSize = buffer.getNumSamples();
     auto delayBufferSize = delayBuffer.getNumSamples();
@@ -219,17 +220,14 @@ void NewProjectAudioProcessor::updateBufferPositions(juce::AudioBuffer<float>& b
     writePosition %= delayBufferSize;
 }
 
-void NewProjectAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
+void NewProjectAudioProcessor::getStateInformation(MemoryBlock& destData)
 {
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+    
 }
 
 void NewProjectAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
+    
 }
 
 

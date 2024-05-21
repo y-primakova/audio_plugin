@@ -6,82 +6,85 @@
 NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioProcessor& p)
     : AudioProcessorEditor(&p), audioProcessor(p)
 {   
-    backgroundImage = juce::ImageCache::getFromMemory(BinaryData::background_png, BinaryData::background_pngSize);
+    backgroundImage = ImageCache::getFromMemory(BinaryData::background_png, BinaryData::background_pngSize);
     setSize(650, 380);
-   // button.setLookAndFeel(&buttonLookAndFeel);
-    auto fontData = juce::Typeface::createSystemTypefaceFor(BinaryData::SfOuterLimits_ttf,
+   
+    auto fontData = Typeface::createSystemTypefaceFor(BinaryData::SfOuterLimits_ttf,
         BinaryData::SfOuterLimits_ttfSize);
-    customFont = juce::Font(fontData);
+    customFont = Font(fontData);
     customFont.setHeight(14.0f);
 
-    //addAndMakeVisible(button);
     button.onClick = [this]() { off(); };
     button.setSize(getWidth() / 10, getHeight() / 12);
 
     addAndMakeVisible(sliderDelayMs);
     sliderDelayMs.setLookAndFeel(&customLookAndFeel);
-    sliderDelayMs.setTextBoxStyle(juce::Slider::TextBoxBelow, 0, 100, 20);
-    sliderDelayMs.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
+    sliderDelayMs.setRange(0, 100, 1);
+    sliderDelayMs.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderDelayMs.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderDelayMs.addListener(this);
 
 
     addAndMakeVisible(sliderFeedback);
     sliderFeedback.setLookAndFeel(&customLookAndFeel);
-    sliderFeedback.setTextBoxStyle(juce::Slider::TextBoxBelow, 0, 100, 20);
-    sliderFeedback.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
+    sliderFeedback.setRange(0, 100, 1);
+    sliderFeedback.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderFeedback.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderFeedback.addListener(this);
 
     addAndMakeVisible(sliderVolume);
     sliderVolume.setLookAndFeel(&customLookAndFeel);
-    sliderVolume.setTextBoxStyle(juce::Slider::TextBoxBelow, 0, 100, 20);
-    sliderVolume.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
+    sliderVolume.setRange(0, 100, 1);
+    sliderVolume.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderVolume.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderVolume.addListener(this);
 
     addAndMakeVisible(sliderDistortion);
     sliderDistortion.setLookAndFeel(&customLookAndFeel);
-    sliderDistortion.setTextBoxStyle(juce::Slider::TextBoxBelow, 0, 100, 20);
-    sliderDistortion.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
+    sliderDistortion.setRange(0, 100, 1);
+    sliderDistortion.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderDistortion.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderDistortion.addListener(this);
 
     addAndMakeVisible(sliderBlend);
     sliderBlend.setLookAndFeel(&customLookAndFeel);
-    sliderBlend.setTextBoxStyle(juce::Slider::TextBoxBelow, 0, 100, 20);
-    sliderBlend.setSliderStyle(juce::Slider::SliderStyle::RotaryVerticalDrag);
+    sliderBlend.setRange(0, 100, 1);
+    sliderBlend.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderBlend.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderBlend.addListener(this);
 
     addAndMakeVisible(delayLabel);
-    delayLabel.setText("DELAY", juce::dontSendNotification);
+    delayLabel.setText("DELAY", dontSendNotification);
     delayLabel.setFont(customFont);
     
     addAndMakeVisible(volumeLabel);
-    volumeLabel.setText("VOLUME", juce::dontSendNotification);
+    volumeLabel.setText("VOLUME", dontSendNotification);
     volumeLabel.setFont(customFont);
 
     addAndMakeVisible(feedbackLabel);
-    feedbackLabel.setText("FEEDBACK", juce::dontSendNotification);
+    feedbackLabel.setText("FEEDBACK", dontSendNotification);
     feedbackLabel.setFont(customFont);
 
     addAndMakeVisible(distortionLabel);
-    distortionLabel.setText("DISTORTION", juce::dontSendNotification);
+    distortionLabel.setText("DISTORTION", dontSendNotification);
     distortionLabel.setFont(customFont);
 
     addAndMakeVisible(blendLabel);
-    blendLabel.setText("BLEND", juce::dontSendNotification);
+    blendLabel.setText("BLEND", dontSendNotification);
     blendLabel.setFont(customFont);
 
 
     settingsButton.setImages(false, true, true,
-        juce::ImageCache::getFromMemory(BinaryData::setting_png,
+        ImageCache::getFromMemory(BinaryData::setting_png,
             BinaryData::setting_pngSize), 1.0f,
-        juce::Colours::transparentBlack,
-        juce::ImageCache::getFromMemory(BinaryData::setting_png, BinaryData::setting_pngSize),
-        1.0f, juce::Colours::transparentBlack,
-        juce::ImageCache::getFromMemory(BinaryData::setting_png, BinaryData::setting_pngSize),
-        1.0f, juce::Colours::transparentBlack);
+        Colours::transparentBlack,
+        ImageCache::getFromMemory(BinaryData::setting_png, BinaryData::setting_pngSize),
+        1.0f, Colours::transparentBlack,
+        ImageCache::getFromMemory(BinaryData::setting_png, BinaryData::setting_pngSize),
+        1.0f, Colours::transparentBlack);
     addAndMakeVisible(settingsButton);
     settingsButton.onClick = [this] {openSettings(&settingsButton); };
 
-    //addAndMakeVisible(styleMenu);
 
     addAndMakeVisible(styleMenu);
     styleMenu.addItem("Settings", 1);
@@ -96,73 +99,103 @@ NewProjectAudioProcessorEditor::~NewProjectAudioProcessorEditor()
 }
 
 //==============================================================================
-void NewProjectAudioProcessorEditor::paint(juce::Graphics& g)
+void NewProjectAudioProcessorEditor::paint(Graphics& g)
 {
-    //g.fillAll(juce::Colour(115, 98, 99));
     g.drawImageAt(backgroundImage, 0, 0);
 
-    g.setColour(juce::Colour(205, 192, 207));
+    g.setColour(Colour(205, 192, 207));
     int radius = getWidth() / 8.3;
     g.fillEllipse(getWidth() / 19 + radius, getHeight() / 4.2 - radius, radius * 2, radius * 2);
 
-    g.setColour(juce::Colour(205, 192, 207));
+    g.setColour(Colour(205, 192, 207));
     int radius1 = getWidth() / 8.3;
     g.fillEllipse(getWidth() / 2.09 + radius1, getHeight() / 4.2 - radius1, radius1 * 2, radius1 * 2);
 
-    g.setColour(juce::Colour(205, 192, 207));
+    g.setColour(Colour(205, 192, 207));
     int radius2 = getWidth() / 8.1;
     g.fillEllipse(getWidth() / 2 + getWidth() / 10.5 + radius2, getHeight() / 3.75 + radius2, radius2 * 2, radius2 * 2);
 
-    g.setColour(juce::Colour(205, 192, 207));
+    g.setColour(Colour(205, 192, 207));
     int radius3 = getWidth() / 8.1;
     g.fillEllipse(getWidth() / 6.3 - radius3, getHeight() / 13 + getHeight() / 5.2 + radius3, radius3 * 2, radius3 * 2);
 
-    g.setColour(juce::Colour(170, 157, 171));
+    g.setColour(Colour(205, 192, 207));
     int radius4 = getWidth() / 9.1;
     g.fillEllipse(getWidth() /2 - getHeight()/5.9, getHeight() / 6.6 + radius4, radius4 * 2, radius4 * 2);
 
+}
+
+void NewProjectAudioProcessorEditor :: setupSliderAndLabel(Slider& slider, Label& label, const String& componentID,
+    int x, int y, int width, int height, int textBoxWidth, int labelHeight) 
+{
+    slider.setBounds(x, y, width, height);
+    slider.setTextBoxStyle(Slider::TextBoxBelow, false, textBoxWidth, labelHeight);
+    slider.setComponentID(componentID);
+    if (componentID == "delaySlider") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 + 2, y + height/2 + 2.2 *labelHeight, width, labelHeight);
+    }
+    else if (componentID == "feedbackSlider") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 - 12, y + height/2 + 2.2 *labelHeight, width, labelHeight);
+    }
+    else if (componentID == "volumeSlider") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 - 5, y + height / 2 + 2 * labelHeight, width, labelHeight);
+    }
+    else if (componentID == "distortionSlider") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 - 15, y + height / 2 + 2.4 * labelHeight, width, labelHeight);
+    }
+    else if (componentID == "blendSlider") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 + 2, y + height / 2 + 2.4 * labelHeight, width, labelHeight);
+    }
+    
 }
     
 
 void NewProjectAudioProcessorEditor::resized()
 {
-    int sliderWidth = getWidth() / 1.8;
-    int sliderHeight = getHeight() / 2.2;
-    int labelSize = 20;
-  
+    const int sliderWidth1 = getWidth() / 2.22; 
+    const int sliderHeight1 = getHeight() / 2.2; 
+    const int sliderWidth2 = getWidth() / 2.4;
+    const int sliderHeight2 = getHeight() / 2.4;
+    const int sliderWidth3 = getWidth() / 1.9; 
+    const int sliderHeight3 = getHeight() / 2.15;
+    const int labelHeight = 20;
+    const int textBoxWidth = sliderWidth1 / 3;
+    const int radius1 = 8.3;
+    const int radius2 = 8.1;
+    const int radius3 = 9.1;
 
-    //button.setBounds(getWidth() / 2 - 150, getHeight() / 20 - 10, getWidth() / 5, getHeight() / 12);
-    //button.setColour(juce::TextButton::buttonColourId, juce::Colour(50, 71, 50));
+    int delaySliderX = getWidth() / 19 + radius1 + 2;
+    int delaySliderY = getHeight() / 4.2 - sliderHeight1/2.3;
+    setupSliderAndLabel(sliderDelayMs, delayLabel, "delaySlider", delaySliderX, delaySliderY,
+        sliderWidth1, sliderHeight1, textBoxWidth, labelHeight);
 
-    sliderDelayMs.setBounds(getWidth() / 20 - getWidth()/6, getHeight() / 7 + sliderHeight - 40, sliderWidth, sliderHeight);
-    sliderDelayMs.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 60, 20);
-    delayLabel.setBounds(getWidth() / 20 + labelSize * 2, getHeight() / 7 + sliderHeight + labelSize, sliderWidth - labelSize, sliderHeight - labelSize);
+    int feedbackSliderX = getWidth() / 2.09 + radius1 + 3;
+    int feedbackSliderY = delaySliderY;
+    setupSliderAndLabel(sliderFeedback, feedbackLabel, "feedbackSlider", feedbackSliderX, feedbackSliderY,
+        sliderWidth1, sliderHeight1, textBoxWidth, labelHeight);
 
-    sliderFeedback.setBounds(getWidth()/2 + getWidth() / 15, getHeight() / 7 + sliderHeight - 40, sliderWidth, sliderHeight);
-    sliderFeedback.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 60, 20);
-    feedbackLabel.setBounds(getWidth()/2 + getWidth()/3.8, getHeight() / 7 + sliderHeight + labelSize, sliderWidth - labelSize, sliderHeight - labelSize);
+    int volumeSliderX = getWidth() / 2 - sliderWidth2/2 + radius3 - 1;
+    int volumeSliderY = getHeight()/2 - sliderHeight2/2.7;
+    setupSliderAndLabel(sliderVolume, volumeLabel, "volumeSlider", volumeSliderX, volumeSliderY,
+        sliderWidth2, sliderHeight2, textBoxWidth, labelHeight);
 
-    sliderVolume.setBounds(getWidth() / 2 - getWidth()/15 - sliderWidth/3, getHeight() / 5 + sliderHeight/3, sliderWidth - sliderWidth/20, sliderHeight - sliderWidth / 20);
-    sliderVolume.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 150, 50);
-    volumeLabel.setBounds(getWidth() / 2 - getWidth()/21, getHeight() / 5 + sliderHeight / 3 + labelSize, 100, 200);
-
-    sliderDistortion.setBounds(getWidth()/2 - getWidth()/20, getHeight() / 2 - sliderHeight, sliderWidth - 9, sliderHeight - 5);
-    distortionLabel.setBounds(getWidth()/2 + getWidth()/6.8, getHeight() / 2 - sliderHeight + 4*labelSize, 100, 100);
-
-    sliderBlend.setBounds(getWidth()/20 - getWidth()/40, getHeight() / 2 - sliderHeight, sliderWidth - 9, sliderHeight - 5);
-    blendLabel.setBounds(getWidth()/20 + getWidth()/5, getHeight() / 2 - sliderHeight + 2.2*labelSize, sliderWidth - 9, sliderHeight - 5);
+    int distortionSliderX = getWidth() / 6 - sliderWidth3/2 - radius3/2.5 - 1;
+    int distortionSliderY = getHeight() / 3.5 + sliderHeight3/2 - 1.2*radius3;
+    setupSliderAndLabel(sliderDistortion, distortionLabel, "distortionSlider", distortionSliderX, distortionSliderY,
+        sliderWidth3, sliderHeight3, textBoxWidth, labelHeight);
     
-    //styleMenu.setBounds(getWidth() / 45, getHeight() / 20 - 10, getWidth() / 6, getHeight() / 12);
-    //styleMenu.setColour(juce::ComboBox::backgroundColourId, juce::Colour(239, 233, 240));
-    //styleMenu.setColour(juce::ComboBox::textColourId, juce::Colour(144, 128, 145));
+    int blendSliderX = getWidth() / 3 + sliderWidth3/2 - radius3 - 1;
+    int blendSliderY = distortionSliderY;
+    setupSliderAndLabel(sliderBlend, blendLabel, "blendSlider", blendSliderX, blendSliderY,
+        sliderWidth3, sliderHeight3, textBoxWidth, labelHeight);
 
     int settingsHeight = 30;
     int settingsWidth = 30;
     settingsButton.setBounds(getWidth() / 45, getHeight() / 20, settingsWidth, settingsHeight);
-
+    
 }
 
-void NewProjectAudioProcessorEditor::sliderValueChanged(juce::Slider* slider) {
+void NewProjectAudioProcessorEditor::sliderValueChanged(Slider* slider) {
     if (slider == &sliderDelayMs) {
         audioProcessor.changeDelayMs = sliderDelayMs.getValue();
     }
@@ -193,32 +226,30 @@ void NewProjectAudioProcessorEditor::off() {
     sliderBlend.setValue(1.0);
 }
 
-void NewProjectAudioProcessorEditor::openSettings(juce::Button* button)
+void NewProjectAudioProcessorEditor::openSettings(Button* button)
 {
     if (button == &settingsButton)
     {
-        juce::PopupMenu settingsMenu;
+        PopupMenu settingsMenu;
         settingsMenu.setLookAndFeel(&customLookAndFeel);
 
-       /*juce::PopupMenu::Options options;
-        options.withMinimumWidth(500)  // Минимальная ширина каждого элемента меню
-            .withMaximumNumColumns(1)
-            .withStandardItemHeight(80);*/
-
-        juce::PopupMenu themeSubMenu;
+        PopupMenu themeSubMenu;
         themeSubMenu.setLookAndFeel(&customLookAndFeel);
 
-        juce::Image catIcon = juce::ImageCache::getFromMemory(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
-        juce::Image minionIcon = juce::ImageCache::getFromMemory(BinaryData::minionIcon_png, BinaryData::minionIcon_pngSize);
-        // Добавляем опции тем в подменю с "иконками" в виде эмодзи
+        Image catIcon = ImageCache::getFromMemory(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
+        Image minionIcon = ImageCache::getFromMemory(BinaryData::minionIcon_png, BinaryData::minionIcon_pngSize);
+        Image starIcon = ImageCache::getFromMemory(BinaryData::starIcon_png, BinaryData::starIcon_pngSize);
+        
+        // Добавляем опции тем в подменю с иконками
         themeSubMenu.addItem(101, "cats theme", true, false, catIcon);
         themeSubMenu.addItem(102, "minions theme", true, false, minionIcon);
+        themeSubMenu.addItem(103, "basic theme", true, false, starIcon);
 
         // Добавляем подменю к основному меню "Интерфейс"
         settingsMenu.addSubMenu("theme settings", themeSubMenu);
         settingsMenu.addItem(2, "effects settings");
 
-        juce::PopupMenu::Options options;
+        PopupMenu::Options options;
         options = options.withMinimumWidth(200).withStandardItemHeight(80).withTargetComponent(button);
 
         // Асинхронный вызов меню
@@ -228,17 +259,78 @@ void NewProjectAudioProcessorEditor::openSettings(juce::Button* button)
                 switch (result)
                 {
                 case 101:
-                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "theme", "cats theme");
+                    changeTheme("cats");
                     break;
                 case 102:
-                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "theme", "minions theme");
+                    changeTheme("minions");
+                    break;
+                case 103:
+                    changeTheme("basic");
                     break;
                 case 2:
-                    juce::AlertWindow::showMessageBoxAsync(juce::AlertWindow::InfoIcon, "settings", "effects");
+                    AlertWindow::showMessageBoxAsync(AlertWindow::InfoIcon, "settings", "effects");
                     break;
                 }
             });
     }
+}
+
+void NewProjectAudioProcessorEditor::changeTheme(const String& themeName)
+{
+    currentTheme = themeName;
+
+    if (themeName == "minions")
+    {
+        // Установка фона для темы "minions"
+        backgroundImage = ImageCache::getFromMemory(BinaryData::background2_png, BinaryData::background2_pngSize);
+
+        // Изменение настроек слайдеров
+        sliderDelayMs.setLookAndFeel(&minionsLookAndFeel);
+        sliderFeedback.setLookAndFeel(&minionsLookAndFeel);
+        sliderVolume.setLookAndFeel(&minionsLookAndFeel);
+        sliderDistortion.setLookAndFeel(&minionsLookAndFeel);
+        sliderBlend.setLookAndFeel(&minionsLookAndFeel);
+        delayLabel.setColour(Label::textColourId, Colours::white);
+        volumeLabel.setColour(Label::textColourId, Colours::white);
+        distortionLabel.setColour(Label::textColourId, Colours::white);
+        feedbackLabel.setColour(Label::textColourId, Colours::white);
+        blendLabel.setColour(Label::textColourId, Colours::white);
+
+    }
+    else if (themeName == "basic")
+    {
+        backgroundImage = ImageCache::getFromMemory(BinaryData::background5_png, BinaryData::background5_pngSize);
+        sliderDelayMs.setLookAndFeel(&basicLookAndFeel);
+        sliderFeedback.setLookAndFeel(&basicLookAndFeel);
+        sliderVolume.setLookAndFeel(&basicLookAndFeel);
+        sliderDistortion.setLookAndFeel(&basicLookAndFeel);
+        sliderBlend.setLookAndFeel(&basicLookAndFeel);
+        delayLabel.setColour(Label::textColourId, Colours::white);
+        volumeLabel.setColour(Label::textColourId, Colours::white);
+        distortionLabel.setColour(Label::textColourId, Colours::white);
+        feedbackLabel.setColour(Label::textColourId, Colours::white);
+        blendLabel.setColour(Label::textColourId, Colours::white);
+    }
+    else // default theme
+    {
+        // Установка стандартного фона
+        backgroundImage = ImageCache::getFromMemory(BinaryData::background_png, BinaryData::background_pngSize);
+
+        // Возвращение к стандартному внешнему виду
+        sliderDelayMs.setLookAndFeel(&customLookAndFeel);
+        sliderFeedback.setLookAndFeel(&customLookAndFeel);
+        sliderVolume.setLookAndFeel(&customLookAndFeel);
+        sliderDistortion.setLookAndFeel(&customLookAndFeel);
+        sliderBlend.setLookAndFeel(&customLookAndFeel);
+        delayLabel.setColour(Label::textColourId, Colours::white);
+        volumeLabel.setColour(Label::textColourId, Colours::white);
+        distortionLabel.setColour(Label::textColourId, Colours::white);
+        feedbackLabel.setColour(Label::textColourId, Colours::white);
+        blendLabel.setColour(Label::textColourId, Colours::white);
+    }
+
+    repaint();  // Перерисовка интерфейса
+    resized();  // Обновление расположения компонентов
 }
 
 

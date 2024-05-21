@@ -10,13 +10,16 @@
 
 #include <BinaryData.h>
 #include "LookAndFeelCustom.h"
-//#include <include_juce_graphics.cpp>
-using namespace juce;
+
+
 
 //==============================================================================
 LookAndFeelCustom::LookAndFeelCustom()
 {
-    setColour(juce::PopupMenu::backgroundColourId, juce::Colour(0xff222222));
+    setColour(PopupMenu::backgroundColourId, Colour(0xff222222));
+    auto typeface = Typeface::createSystemTypefaceFor(BinaryData::SfOuterLimits_ttf, BinaryData::SfOuterLimits_ttfSize);
+    textFont = Font(typeface);
+    textFont.setHeight(14.0f);
 
 }
 
@@ -24,9 +27,25 @@ void LookAndFeelCustom::drawRotarySlider(Graphics& g, int x, int y, int width, i
                                         float rotaryStartAngle, float rotaryEndAngle, Slider& slider)
 {
     
-    Image myKitty = ImageCache::getFromMemory(BinaryData::BSW_Knob_2_png, BinaryData::BSW_Knob_2_pngSize);
+    Image sliderImage;
+    if (slider.getComponentID() == "delaySlider") {
+        sliderImage = ImageCache::getFromMemory(BinaryData::cat5_png, BinaryData::cat5_pngSize);
+    }
+    else if (slider.getComponentID() == "volumeSlider") {
+        sliderImage = ImageCache::getFromMemory(BinaryData::cat5_png, BinaryData::cat5_pngSize);
+    }
+    else if (slider.getComponentID() == "feedbackSlider") {
+        sliderImage = ImageCache::getFromMemory(BinaryData::cat5_png, BinaryData::cat5_pngSize);
+    }
+    else if (slider.getComponentID() == "distortionSlider") {
+        sliderImage = ImageCache::getFromMemory(BinaryData::cat5_png, BinaryData::cat5_pngSize);
+    }
+    else {
+        sliderImage = ImageCache::getFromMemory(BinaryData::cat5_png, BinaryData::cat5_pngSize);
+    }
+    
     const double fractRotation = (slider.getValue() - slider.getMinimum()) / (slider.getMaximum() - slider.getMinimum()); //value between 0 and 1 for current amount of rotation
-    const int nFrames = myKitty.getHeight() / myKitty.getWidth(); // number of frames for vertical film strip
+    const int nFrames = sliderImage.getHeight() / sliderImage.getWidth(); // number of frames for vertical film strip
     const int frameIdx = (int)ceil(fractRotation * ((double)nFrames - 1.0)); // current index from 0 --> nFrames-1
 
     const float radius = jmin(width / 2.0f, height / 2.0f);
@@ -35,15 +54,15 @@ void LookAndFeelCustom::drawRotarySlider(Graphics& g, int x, int y, int width, i
     const float rx = centreX - radius - 1.0f;
     const float ry = centreY - radius - 1.0f;
 
-    g.drawImage(myKitty,
+    g.drawImage(sliderImage,
         (int)rx,
         (int)ry,
         2 * (int)radius,
         2 * (int)radius,   //Dest
         0,
-        frameIdx * myKitty.getWidth(),
-        myKitty.getWidth(),
-        myKitty.getWidth()); //Source
+        frameIdx * sliderImage.getWidth(),
+        sliderImage.getWidth(),
+        sliderImage.getWidth()); //Source
 
     slider.setColour(Slider::textBoxOutlineColourId, Colours::transparentBlack);
 
@@ -60,8 +79,8 @@ void LookAndFeelCustom::drawLinearSlider(juce::Graphics& g,
     float 	sliderPos,
     float 	minSliderPos,
     float 	maxSliderPos,
-    juce::Slider::SliderStyle,
-    juce::Slider& slider)
+    Slider::SliderStyle,
+    Slider& slider)
 {
     Image linearSlider = ImageCache::getFromMemory(BinaryData::VerticalSlider_png, BinaryData::VerticalSlider_pngSize);
     
@@ -77,20 +96,21 @@ void LookAndFeelCustom::drawLinearSlider(juce::Graphics& g,
         0, frameIdx * linearSlider.getHeight(), linearSlider.getWidth(), linearSlider.getHeight());
 }
     
-void LookAndFeelCustom::drawPopupMenuItem(juce::Graphics& g, const juce::Rectangle<int>& area,
+void LookAndFeelCustom::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area,
     const bool isSeparator, const bool isActive,
     const bool isHighlighted, const bool isTicked,
-    const bool hasSubMenu, const juce::String& text,
-    const juce::String& shortcutKeyText,
-    const juce::Drawable* icon, const juce::Colour* textColour)
+    const bool hasSubMenu, const String& text,
+    const String& shortcutKeyText,
+    const Drawable* icon, const Colour* textColour)
 {
-    juce::Rectangle<int> r(area);
+    Rectangle<int> r(area);
+
 
     // Настройка цветов для фона элемента
-    juce::Colour backgroundColour = isHighlighted ? findColour(juce::PopupMenu::highlightedBackgroundColourId)
-        : findColour(juce::PopupMenu::backgroundColourId);
-    juce::Colour textColourToUse = textColour != nullptr ? *textColour
-        : findColour(juce::PopupMenu::textColourId);
+    Colour backgroundColour = isHighlighted ? findColour(PopupMenu::highlightedBackgroundColourId)
+        : findColour(PopupMenu::backgroundColourId);
+    Colour textColourToUse = textColour != nullptr ? *textColour
+        : findColour(PopupMenu::textColourId);
 
     // Фон элемента
     g.setColour(backgroundColour);
@@ -105,27 +125,29 @@ void LookAndFeelCustom::drawPopupMenuItem(juce::Graphics& g, const juce::Rectang
     }
 
     // Отступ для текста и иконки
-    juce::Rectangle<int> iconArea = r.removeFromLeft((int)(r.getHeight() * 1.2f));
+    int iconMarginLeft = 10;
+    Rectangle<int> iconArea = r.removeFromLeft((int)(r.getHeight() * 0.7f));
+    iconArea.setX(iconArea.getX() + iconMarginLeft);
     int textLeftMargin = 10;
 
     // Иконка, если есть
     if (icon != nullptr)
     {
-        icon->drawWithin(g, iconArea.toFloat(), juce::RectanglePlacement::centred, 1.0f);
-        textLeftMargin = (int)(iconArea.getRight() + 5);
+        icon->drawWithin(g, iconArea.toFloat(), RectanglePlacement::centred, 2.0f);
+        textLeftMargin = (int)(iconArea.getRight() - 20);
     }
     
 
     // Текст элемента
+    g.setFont(textFont);
     r.removeFromLeft(textLeftMargin);
     g.setColour(textColourToUse);
-    g.setFont(juce::Font(16.0f));
-    g.drawText(text, r, juce::Justification::centredLeft, true);
+    g.drawText(text, r, Justification::centredLeft, true);
 
     // Субменю стрелка, если есть
     if (hasSubMenu)
     {
-        juce::Path subMenuArrow;
+        Path subMenuArrow;
         subMenuArrow.addTriangle(r.getRight() - 20, r.getCentreY() - 3,
             r.getRight() - 10, r.getCentreY(),
             r.getRight() - 20, r.getCentreY() + 3);
@@ -137,6 +159,11 @@ void LookAndFeelCustom::drawPopupMenuItem(juce::Graphics& g, const juce::Rectang
     if (!shortcutKeyText.isEmpty())
     {
         g.setColour(textColourToUse.withAlpha(0.6f));  // Полупрозрачный для краткости
-        g.drawText(shortcutKeyText, r, juce::Justification::centredRight, true);
+        g.drawText(shortcutKeyText, r, Justification::centredRight, true);
     }
+}
+
+Font LookAndFeelCustom::getLabelFont(Label& label)
+{
+    return textFont;
 }

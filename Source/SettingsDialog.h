@@ -15,16 +15,16 @@
 //==============================================================================
 /*
 */
-class SettingsDialog  : public juce::Component
+class SettingsDialog  : public Component
 {
 public:
     SettingsDialog();
     ~SettingsDialog() ;
 
-    void paint (juce::Graphics&) override;
+    void paint (Graphics&) override;
     void resized() override;
-    void comboBoxChanged(juce::ComboBox* comboBox);
+    void comboBoxChanged(ComboBox* comboBox);
 
 private:
-    juce::ComboBox settingsComboBox;
+    ComboBox settingsComboBox;
 };
