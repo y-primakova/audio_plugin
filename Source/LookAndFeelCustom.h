@@ -52,7 +52,6 @@ public:
 
 	Font getLabelFont(Label& label) override;
 
-
 private:
 	Font textFont;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LookAndFeelCustom)

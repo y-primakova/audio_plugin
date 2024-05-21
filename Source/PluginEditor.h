@@ -4,6 +4,7 @@
 #include "PluginProcessor.h"
 #include "LookAndFeelCustom.h"
 #include "LookAndFeelMinion.h"
+#include "LookAndFeelBasic.h"
 using namespace juce;
 
 
@@ -30,6 +31,7 @@ private:
 
     LookAndFeelCustom customLookAndFeel;
     LookAndFeelMinion minionsLookAndFeel;
+    LookAndFeelBasic basicLookAndFeel;
 
     Slider sliderDelayMs;
     Slider sliderFeedback;

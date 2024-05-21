@@ -19,6 +19,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
 
     addAndMakeVisible(sliderDelayMs);
     sliderDelayMs.setLookAndFeel(&customLookAndFeel);
+    sliderDelayMs.setRange(0, 100, 1);
     sliderDelayMs.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderDelayMs.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderDelayMs.addListener(this);
@@ -26,24 +27,28 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
 
     addAndMakeVisible(sliderFeedback);
     sliderFeedback.setLookAndFeel(&customLookAndFeel);
+    sliderFeedback.setRange(0, 100, 1);
     sliderFeedback.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderFeedback.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderFeedback.addListener(this);
 
     addAndMakeVisible(sliderVolume);
     sliderVolume.setLookAndFeel(&customLookAndFeel);
+    sliderVolume.setRange(0, 100, 1);
     sliderVolume.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderVolume.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderVolume.addListener(this);
 
     addAndMakeVisible(sliderDistortion);
     sliderDistortion.setLookAndFeel(&customLookAndFeel);
+    sliderDistortion.setRange(0, 100, 1);
     sliderDistortion.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderDistortion.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderDistortion.addListener(this);
 
     addAndMakeVisible(sliderBlend);
     sliderBlend.setLookAndFeel(&customLookAndFeel);
+    sliderBlend.setRange(0, 100, 1);
     sliderBlend.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderBlend.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderBlend.addListener(this);
@@ -233,10 +238,12 @@ void NewProjectAudioProcessorEditor::openSettings(Button* button)
 
         Image catIcon = ImageCache::getFromMemory(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
         Image minionIcon = ImageCache::getFromMemory(BinaryData::minionIcon_png, BinaryData::minionIcon_pngSize);
+        Image starIcon = ImageCache::getFromMemory(BinaryData::starIcon_png, BinaryData::starIcon_pngSize);
         
         // Добавляем опции тем в подменю с иконками
         themeSubMenu.addItem(101, "cats theme", true, false, catIcon);
         themeSubMenu.addItem(102, "minions theme", true, false, minionIcon);
+        themeSubMenu.addItem(103, "basic theme", true, false, starIcon);
 
         // Добавляем подменю к основному меню "Интерфейс"
         settingsMenu.addSubMenu("theme settings", themeSubMenu);
@@ -256,6 +263,9 @@ void NewProjectAudioProcessorEditor::openSettings(Button* button)
                     break;
                 case 102:
                     changeTheme("minions");
+                    break;
+                case 103:
+                    changeTheme("basic");
                     break;
                 case 2:
                     AlertWindow::showMessageBoxAsync(AlertWindow::InfoIcon, "settings", "effects");
@@ -277,7 +287,29 @@ void NewProjectAudioProcessorEditor::changeTheme(const String& themeName)
         // Изменение настроек слайдеров
         sliderDelayMs.setLookAndFeel(&minionsLookAndFeel);
         sliderFeedback.setLookAndFeel(&minionsLookAndFeel);
-        // Продолжите с другими слайдерами
+        sliderVolume.setLookAndFeel(&minionsLookAndFeel);
+        sliderDistortion.setLookAndFeel(&minionsLookAndFeel);
+        sliderBlend.setLookAndFeel(&minionsLookAndFeel);
+        delayLabel.setColour(Label::textColourId, Colours::white);
+        volumeLabel.setColour(Label::textColourId, Colours::white);
+        distortionLabel.setColour(Label::textColourId, Colours::white);
+        feedbackLabel.setColour(Label::textColourId, Colours::white);
+        blendLabel.setColour(Label::textColourId, Colours::white);
+
+    }
+    else if (themeName == "basic")
+    {
+        backgroundImage = ImageCache::getFromMemory(BinaryData::background5_png, BinaryData::background5_pngSize);
+        sliderDelayMs.setLookAndFeel(&basicLookAndFeel);
+        sliderFeedback.setLookAndFeel(&basicLookAndFeel);
+        sliderVolume.setLookAndFeel(&basicLookAndFeel);
+        sliderDistortion.setLookAndFeel(&basicLookAndFeel);
+        sliderBlend.setLookAndFeel(&basicLookAndFeel);
+        delayLabel.setColour(Label::textColourId, Colours::white);
+        volumeLabel.setColour(Label::textColourId, Colours::white);
+        distortionLabel.setColour(Label::textColourId, Colours::white);
+        feedbackLabel.setColour(Label::textColourId, Colours::white);
+        blendLabel.setColour(Label::textColourId, Colours::white);
     }
     else // default theme
     {
@@ -287,7 +319,14 @@ void NewProjectAudioProcessorEditor::changeTheme(const String& themeName)
         // Возвращение к стандартному внешнему виду
         sliderDelayMs.setLookAndFeel(&customLookAndFeel);
         sliderFeedback.setLookAndFeel(&customLookAndFeel);
-        // Продолжите с другими слайдерами
+        sliderVolume.setLookAndFeel(&customLookAndFeel);
+        sliderDistortion.setLookAndFeel(&customLookAndFeel);
+        sliderBlend.setLookAndFeel(&customLookAndFeel);
+        delayLabel.setColour(Label::textColourId, Colours::white);
+        volumeLabel.setColour(Label::textColourId, Colours::white);
+        distortionLabel.setColour(Label::textColourId, Colours::white);
+        feedbackLabel.setColour(Label::textColourId, Colours::white);
+        blendLabel.setColour(Label::textColourId, Colours::white);
     }
 
     repaint();  // Перерисовка интерфейса

@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    LookAndFeelMinion.h
-    Created: 22 Apr 2024 4:34:14pm
+    LookAndFeelBasic.h
+    Created: 21 May 2024 10:11:09pm
     Author:  izmka
 
   ==============================================================================
@@ -18,10 +18,10 @@ using namespace juce;
 //==============================================================================
 /*
 */
-class LookAndFeelMinion : public juce::LookAndFeel_V4
+class LookAndFeelBasic : public juce::LookAndFeel_V4
 {
 public:
-	LookAndFeelMinion();
+	LookAndFeelBasic();
 
 	void drawRotarySlider(juce::Graphics& g,
 		int 	x,
@@ -35,6 +35,5 @@ public:
 	Font getLabelFont(Label& label) override;
 
 private:
-		Font textFont;
+	Font textFont;
 };
-
