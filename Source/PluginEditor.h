@@ -23,6 +23,7 @@ public:
     void NewProjectAudioProcessorEditor::styleMenuChanged();
     void NewProjectAudioProcessorEditor::openSettings(Button* button);
     void NewProjectAudioProcessorEditor::changeTheme(const String& themeName);
+    void NewProjectAudioProcessorEditor::setEffect(const juce::String& effectName);
     void NewProjectAudioProcessorEditor::setupSliderAndLabel(Slider& slider, Label& label, const String& componentID,
         int x, int y, int width, int height, int textBoxWidth, int labelHeight);
 
@@ -39,11 +40,25 @@ private:
     Slider sliderDistortion;
     Slider sliderBlend;
 
+    Slider sliderReverb1;
+    Slider sliderReverb2;
+    Slider sliderReverb3;
+    Slider sliderReverb4;
+    Slider sliderReverb5;
+    Slider sliderReverb6;
+
     Label delayLabel;
     Label feedbackLabel;
     Label volumeLabel;
     Label distortionLabel;
     Label blendLabel;
+
+    Label reverbLabel1;
+    Label reverbLabel2;
+    Label reverbLabel3;
+    Label reverbLabel4;
+    Label reverbLabel5;
+    Label reverbLabel6;
 
     ImageButton settingsButton;
 
@@ -51,7 +66,11 @@ private:
 
     Font customFont;
 
-    String currentTheme = "cats";
+    String currentTheme = "basic";
+    String currentEffect = "basic effects";
+
+    void setupBasicEffects();
+    void setupReverbEffects();
 
     TextButton button{ "RESET" };
     ComboBox styleMenu;
