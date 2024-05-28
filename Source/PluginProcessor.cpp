@@ -73,6 +73,16 @@ int NewProjectAudioProcessor::getCurrentProgram()
     return 0;
 }
 
+bool NewProjectAudioProcessor::hasEditor() const
+{
+    return true; 
+}
+
+AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
+{
+    return new NewProjectAudioProcessorEditor(*this);
+}
+
 void NewProjectAudioProcessor::setCurrentProgram(int index)
 {
 }
@@ -165,10 +175,12 @@ AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
 
 void NewProjectAudioProcessor::getStateInformation(MemoryBlock& destData)
 {
+    
 }
 
 void NewProjectAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
+    
 }
 
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

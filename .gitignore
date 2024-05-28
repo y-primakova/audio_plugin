@@ -1,0 +1,6 @@
+.vs/
+
+*.VC.db
+*.VC.opendb
+Builds/
+JuceLibraryCode/

@@ -27,6 +27,9 @@ public:
 
     const String getName() const override;
 
+    AudioProcessorEditor* createEditor() override;
+    
+    bool hasEditor() const override;
     bool acceptsMidi() const override;
     bool producesMidi() const override;
     bool isMidiEffect() const override;
