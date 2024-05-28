@@ -20,7 +20,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderDelayMs);
     sliderDelayMs.setLookAndFeel(&customLookAndFeel);
     sliderDelayMs.setRange(0, 100, 1);
-    sliderDelayMs.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderDelayMs.setTextBoxStyle(Slider::TextBoxBelow, false, 100, 20);
     sliderDelayMs.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderDelayMs.addListener(this);
 
@@ -28,7 +28,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderFeedback);
     sliderFeedback.setLookAndFeel(&customLookAndFeel);
     sliderFeedback.setRange(0, 100, 1);
-    sliderFeedback.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderFeedback.setTextBoxStyle(Slider::TextBoxBelow, false, 100, 20);
     sliderFeedback.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderFeedback.addListener(this);
 
@@ -56,22 +56,89 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(delayLabel);
     delayLabel.setText("DELAY", dontSendNotification);
     delayLabel.setFont(customFont);
+    delayLabel.setColour(Label::backgroundColourId, Colours::transparentWhite);
+    delayLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
     
     addAndMakeVisible(volumeLabel);
     volumeLabel.setText("VOLUME", dontSendNotification);
     volumeLabel.setFont(customFont);
+    volumeLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
 
     addAndMakeVisible(feedbackLabel);
     feedbackLabel.setText("FEEDBACK", dontSendNotification);
     feedbackLabel.setFont(customFont);
+    feedbackLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
 
     addAndMakeVisible(distortionLabel);
     distortionLabel.setText("DISTORTION", dontSendNotification);
     distortionLabel.setFont(customFont);
+    distortionLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
 
     addAndMakeVisible(blendLabel);
     blendLabel.setText("BLEND", dontSendNotification);
     blendLabel.setFont(customFont);
+    blendLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    addAndMakeVisible(sliderReverb1);
+    sliderReverb1.setLookAndFeel(&customLookAndFeel);
+    sliderReverb1.setRange(0, 100, 1);
+    sliderReverb1.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderReverb1.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+    sliderReverb1.addListener(this);
+
+    addAndMakeVisible(sliderReverb2);
+    sliderReverb2.setLookAndFeel(&customLookAndFeel);
+    sliderReverb2.setRange(0, 100, 1);
+    sliderReverb2.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderReverb2.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+    sliderReverb2.addListener(this);
+
+    addAndMakeVisible(sliderReverb3);
+    sliderReverb3.setLookAndFeel(&customLookAndFeel);
+    sliderReverb3.setRange(0, 100, 1);
+    sliderReverb3.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderReverb3.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+    sliderReverb3.addListener(this);
+
+    addAndMakeVisible(sliderReverb4);
+    sliderReverb4.setLookAndFeel(&customLookAndFeel);
+    sliderReverb4.setRange(0, 100, 1);
+    sliderReverb4.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderReverb4.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+    sliderReverb4.addListener(this);
+
+    addAndMakeVisible(sliderReverb5);
+    sliderReverb5.setLookAndFeel(&customLookAndFeel);
+    sliderReverb5.setRange(0, 100, 1);
+    sliderReverb5.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
+    sliderReverb5.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+    sliderReverb5.addListener(this);
+
+
+    addAndMakeVisible(feedback);
+    feedback.setText("FEEDBACK", dontSendNotification);
+    feedback.setFont(customFont);
+    feedback.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    addAndMakeVisible(mix);
+    mix.setText("MIX", dontSendNotification);
+    mix.setFont(customFont);
+    mix.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    addAndMakeVisible(delayTime);
+    delayTime.setText("DELAY", dontSendNotification);
+    delayTime.setFont(customFont);
+    delayTime.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    addAndMakeVisible(lpcutoffFrequency);
+    lpcutoffFrequency.setText("LOW FREQ", dontSendNotification);
+    lpcutoffFrequency.setFont(customFont);
+    lpcutoffFrequency.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    addAndMakeVisible(hpcutoffFrequency);
+    hpcutoffFrequency.setText("HIGH FREQ", dontSendNotification);
+    hpcutoffFrequency.setFont(customFont);
+    hpcutoffFrequency.setColour(Label::outlineColourId, Colours::transparentWhite);
 
 
     settingsButton.setImages(false, true, true,
@@ -85,6 +152,11 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(settingsButton);
     settingsButton.onClick = [this] {openSettings(&settingsButton); };
 
+    currentTheme = "basic";
+    currentEffect = "basic effects";
+
+    changeTheme(currentTheme);
+    setEffect(currentEffect);
 
     addAndMakeVisible(styleMenu);
     styleMenu.addItem("Settings", 1);
@@ -146,12 +218,175 @@ void NewProjectAudioProcessorEditor :: setupSliderAndLabel(Slider& slider, Label
     else if (componentID == "blendSlider") {
         label.setBounds(x + width / 2 - textBoxWidth / 2.7 + 2, y + height / 2 + 2.4 * labelHeight, width, labelHeight);
     }
+    else if (componentID == "feedback") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 + 2, y + height / 2 + 2.2 * labelHeight, width, labelHeight);
+    }
+    else if (componentID == "mix") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 + 29, y + height / 2 + 2.2 * labelHeight, width, labelHeight);
+    }
+    else if (componentID == "delayTime") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 + 11, y + height / 2 + 2 * labelHeight, width, labelHeight);
+    }
+    else if (componentID == "lpcutoffFrequency") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 - 6, y + height / 2 + 2.4 * labelHeight, width, labelHeight);
+    }
+    else if (componentID == "hpcutoffFrequency") {
+        label.setBounds(x + width / 2 - textBoxWidth / 2.7 + 2, y + height / 2 + 2.4 * labelHeight, width, labelHeight);
+    }
     
+}
+
+void NewProjectAudioProcessorEditor::setEffect(const String& effectName)
+{
+    currentEffect = effectName;
+
+    if (effectName == "reverb")
+    {
+        setupReverbEffects();
+    }
+    else if (effectName == "basic")
+    {
+        setupBasicEffects();
+    }
+}
+
+void NewProjectAudioProcessorEditor::setupBasicEffects()
+{
+    // Remove reverb sliders
+    sliderReverb1.setVisible(false);
+    sliderReverb2.setVisible(false);
+    sliderReverb3.setVisible(false);
+    sliderReverb4.setVisible(false);
+    sliderReverb5.setVisible(false);
+    //sliderReverb6.setVisible(false);
+
+    feedback.setVisible(false);
+    mix.setVisible(false);
+    delayTime.setVisible(false);
+    lpcutoffFrequency.setVisible(false);
+    hpcutoffFrequency.setVisible(false);
+    //reverbLabel6.setVisible(false);
+
+    // Show basic effect sliders
+    sliderDelayMs.setVisible(true);
+    sliderFeedback.setVisible(true);
+    sliderVolume.setVisible(true);
+    sliderDistortion.setVisible(true);
+    sliderBlend.setVisible(true);
+
+    sliderDelayMs.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
+    sliderFeedback.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
+    sliderVolume.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
+    sliderDistortion.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
+    sliderBlend.setTextBoxStyle(Slider::TextBoxBelow, false, 50, 20);
+
+    // Show and set text for basic effect labels
+    delayLabel.setVisible(true);
+    delayLabel.setText("DELAY", dontSendNotification);
+    delayLabel.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    delayLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    feedbackLabel.setVisible(true);
+    feedbackLabel.setText("FEEDBACK", dontSendNotification);
+    feedbackLabel.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    feedbackLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    volumeLabel.setVisible(true);
+    volumeLabel.setText("VOLUME", dontSendNotification);
+    volumeLabel.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    volumeLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    distortionLabel.setVisible(true);
+    distortionLabel.setText("DISTORTION", dontSendNotification);
+    distortionLabel.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    distortionLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    blendLabel.setVisible(true);
+    blendLabel.setText("BLEND", dontSendNotification);
+    blendLabel.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    blendLabel.setColour(Label::outlineColourId, Colours::transparentWhite);
+
+    resized();
+    repaint();
+}
+
+void NewProjectAudioProcessorEditor::setupReverbEffects()
+{
+    sliderDelayMs.setVisible(false);
+    sliderFeedback.setVisible(false);
+    sliderVolume.setVisible(false);
+    sliderDistortion.setVisible(false);
+    sliderBlend.setVisible(false);
+
+    delayLabel.setVisible(false);
+    feedbackLabel.setVisible(false);
+    volumeLabel.setVisible(false);
+    distortionLabel.setVisible(false);
+    blendLabel.setVisible(false);
+
+    // Show reverb effect sliders and set them as rotary
+    sliderReverb1.setVisible(true);
+    sliderReverb1.setSliderStyle(Slider::RotaryVerticalDrag);
+    sliderReverb1.setLookAndFeel(&customLookAndFeel);
+
+    sliderReverb2.setVisible(true);
+    sliderReverb2.setSliderStyle(Slider::RotaryVerticalDrag);
+    sliderReverb2.setLookAndFeel(&customLookAndFeel);
+
+    sliderReverb3.setVisible(true);
+    sliderReverb3.setSliderStyle(Slider::RotaryVerticalDrag);
+    sliderReverb3.setLookAndFeel(&customLookAndFeel);
+
+    sliderReverb4.setVisible(true);
+    sliderReverb4.setSliderStyle(Slider::RotaryVerticalDrag);
+    sliderReverb4.setLookAndFeel(&customLookAndFeel);
+
+    sliderReverb5.setVisible(true);
+    sliderReverb5.setSliderStyle(Slider::RotaryVerticalDrag);
+    sliderReverb5.setLookAndFeel(&customLookAndFeel);
+
+
+    sliderReverb1.setTextBoxStyle(Slider::TextBoxBelow, false, 90, 20);
+    sliderReverb2.setTextBoxStyle(Slider::TextBoxBelow, false, 90, 20);
+    sliderReverb3.setTextBoxStyle(Slider::TextBoxBelow, false, 90, 20);
+    sliderReverb4.setTextBoxStyle(Slider::TextBoxBelow, false, 90, 20);
+    sliderReverb5.setTextBoxStyle(Slider::TextBoxBelow, false, 90, 20);
+
+    // Show and set text for reverb effect labels
+    feedback.setVisible(true);
+    feedback.setText("FEEDBACK", dontSendNotification);
+    feedback.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    feedback.setColour(Label::outlineColourId, Colours::transparentBlack);
+
+    mix.setVisible(true);
+    mix.setText("MIX", dontSendNotification);
+    mix.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    mix.setColour(Label::outlineColourId, Colours::transparentBlack);
+
+    delayTime.setVisible(true);
+    delayTime.setText("DELAY", dontSendNotification);
+    delayTime.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    delayTime.setColour(Label::outlineColourId, Colours::transparentBlack);
+
+    lpcutoffFrequency.setVisible(true);
+    lpcutoffFrequency.setText("LOW FREQ", dontSendNotification);
+    lpcutoffFrequency.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    lpcutoffFrequency.setColour(Label::outlineColourId, Colours::transparentBlack);
+
+    hpcutoffFrequency.setVisible(true);
+    hpcutoffFrequency.setText("HIGH FREQ", dontSendNotification);
+    hpcutoffFrequency.setColour(Label::backgroundColourId, Colours::transparentBlack);
+    hpcutoffFrequency.setColour(Label::outlineColourId, Colours::transparentBlack);
+
+    resized();
+    repaint();
 }
     
 
 void NewProjectAudioProcessorEditor::resized()
 {
+    const int sliderWidth = getWidth() / 2.22;
+    const int sliderHeight = getHeight() / 2.2;
     const int sliderWidth1 = getWidth() / 2.22; 
     const int sliderHeight1 = getHeight() / 2.2; 
     const int sliderWidth2 = getWidth() / 2.4;
@@ -164,30 +399,89 @@ void NewProjectAudioProcessorEditor::resized()
     const int radius2 = 8.1;
     const int radius3 = 9.1;
 
-    int delaySliderX = getWidth() / 19 + radius1 + 2;
-    int delaySliderY = getHeight() / 4.2 - sliderHeight1/2.3;
-    setupSliderAndLabel(sliderDelayMs, delayLabel, "delaySlider", delaySliderX, delaySliderY,
-        sliderWidth1, sliderHeight1, textBoxWidth, labelHeight);
 
-    int feedbackSliderX = getWidth() / 2.09 + radius1 + 3;
-    int feedbackSliderY = delaySliderY;
-    setupSliderAndLabel(sliderFeedback, feedbackLabel, "feedbackSlider", feedbackSliderX, feedbackSliderY,
-        sliderWidth1, sliderHeight1, textBoxWidth, labelHeight);
+    if (currentEffect == "basic")
+    {
+        int delaySliderX = getWidth() / 19 + radius1 + 2;
+        int delaySliderY = getHeight() / 4.2 - sliderHeight1 / 2.3;
+        setupSliderAndLabel(sliderDelayMs, delayLabel, "delaySlider", delaySliderX, delaySliderY,
+            sliderWidth1, sliderHeight1, textBoxWidth, labelHeight);
 
-    int volumeSliderX = getWidth() / 2 - sliderWidth2/2 + radius3 - 1;
-    int volumeSliderY = getHeight()/2 - sliderHeight2/2.7;
-    setupSliderAndLabel(sliderVolume, volumeLabel, "volumeSlider", volumeSliderX, volumeSliderY,
-        sliderWidth2, sliderHeight2, textBoxWidth, labelHeight);
+        int feedbackSliderX = getWidth() / 2.09 + radius1 + 3;
+        int feedbackSliderY = delaySliderY;
+        setupSliderAndLabel(sliderFeedback, feedbackLabel, "feedbackSlider", feedbackSliderX, feedbackSliderY,
+            sliderWidth1, sliderHeight1, textBoxWidth, labelHeight);
 
-    int distortionSliderX = getWidth() / 6 - sliderWidth3/2 - radius3/2.5 - 1;
-    int distortionSliderY = getHeight() / 3.5 + sliderHeight3/2 - 1.2*radius3;
-    setupSliderAndLabel(sliderDistortion, distortionLabel, "distortionSlider", distortionSliderX, distortionSliderY,
-        sliderWidth3, sliderHeight3, textBoxWidth, labelHeight);
-    
-    int blendSliderX = getWidth() / 3 + sliderWidth3/2 - radius3 - 1;
-    int blendSliderY = distortionSliderY;
-    setupSliderAndLabel(sliderBlend, blendLabel, "blendSlider", blendSliderX, blendSliderY,
-        sliderWidth3, sliderHeight3, textBoxWidth, labelHeight);
+        int volumeSliderX = getWidth() / 2 - sliderWidth2 / 2 + radius3 - 1;
+        int volumeSliderY = getHeight() / 2 - sliderHeight2 / 2.7;
+        setupSliderAndLabel(sliderVolume, volumeLabel, "volumeSlider", volumeSliderX, volumeSliderY,
+            sliderWidth2, sliderHeight2, textBoxWidth, labelHeight);
+
+        int distortionSliderX = getWidth() / 6 - sliderWidth3 / 2 - radius3 / 2.5 - 1;
+        int distortionSliderY = getHeight() / 3.5 + sliderHeight3 / 2 - 1.2 * radius3;
+        setupSliderAndLabel(sliderDistortion, distortionLabel, "distortionSlider", distortionSliderX, distortionSliderY,
+            sliderWidth3, sliderHeight3, textBoxWidth, labelHeight);
+
+        int blendSliderX = getWidth() / 3 + sliderWidth3 / 2 - radius3 - 1;
+        int blendSliderY = distortionSliderY;
+        setupSliderAndLabel(sliderBlend, blendLabel, "blendSlider", blendSliderX, blendSliderY,
+            sliderWidth3, sliderHeight3, textBoxWidth, labelHeight);
+    }
+    else if (currentEffect == "reverb")
+    {
+        int reverbSlider1X = getWidth() / 19 + radius1 + 2;
+        int reverbSlider1Y = getHeight() / 4.2 - sliderHeight1 / 2.3;
+        setupSliderAndLabel(sliderReverb1, feedback, "feedback", reverbSlider1X, reverbSlider1Y,
+            sliderWidth1, sliderHeight1, textBoxWidth + 25, labelHeight);
+
+        int reverbSlider2X = getWidth() / 2.09 + radius1 + 3;
+        int reverbSlider2Y = reverbSlider1Y;
+        setupSliderAndLabel(sliderReverb2, mix, "mix", reverbSlider2X, reverbSlider2Y,
+            sliderWidth1, sliderHeight1, textBoxWidth + 25, labelHeight);
+
+        int reverbSlider3X = getWidth() / 2 - sliderWidth2 / 2 + radius3 - 1;
+        int reverbSlider3Y = getHeight() / 2 - sliderHeight2 / 2.7;
+        setupSliderAndLabel(sliderReverb3, delayTime, "delayTime", reverbSlider3X, reverbSlider3Y,
+            sliderWidth2, sliderHeight2, textBoxWidth + 25, labelHeight);
+
+        int reverbSlider4X = getWidth() / 6 - sliderWidth3 / 2 - radius3 / 2.5 - 1;
+        int reverbSlider4Y = getHeight() / 3.5 + sliderHeight3 / 2 - 1.2 * radius3;
+        setupSliderAndLabel(sliderReverb4, lpcutoffFrequency, "lpcutoffFrequency", reverbSlider4X, reverbSlider4Y,
+            sliderWidth3, sliderHeight3, textBoxWidth + 25, labelHeight);
+
+        int reverbSlider5X = getWidth() / 3 + sliderWidth3 / 2 - radius3 - 1;
+        int reverbSlider5Y = reverbSlider4Y;
+        setupSliderAndLabel(sliderReverb5, hpcutoffFrequency, "hpcutoffFrequency", reverbSlider5X, reverbSlider5Y,
+            sliderWidth3, sliderHeight3, textBoxWidth + 25, labelHeight);
+
+    }
+    else
+    {
+        int delaySliderX = getWidth() / 19 + radius1 + 2;
+        int delaySliderY = getHeight() / 4.2 - sliderHeight1 / 2.3;
+        setupSliderAndLabel(sliderDelayMs, delayLabel, "delaySlider", delaySliderX, delaySliderY,
+            sliderWidth1, sliderHeight1, textBoxWidth, labelHeight);
+
+        int feedbackSliderX = getWidth() / 2.09 + radius1 + 3;
+        int feedbackSliderY = delaySliderY;
+        setupSliderAndLabel(sliderFeedback, feedbackLabel, "feedbackSlider", feedbackSliderX, feedbackSliderY,
+            sliderWidth1, sliderHeight1, textBoxWidth, labelHeight);
+
+        int volumeSliderX = getWidth() / 2 - sliderWidth2 / 2 + radius3 - 1;
+        int volumeSliderY = getHeight() / 2 - sliderHeight2 / 2.7;
+        setupSliderAndLabel(sliderVolume, volumeLabel, "volumeSlider", volumeSliderX, volumeSliderY,
+            sliderWidth2, sliderHeight2, textBoxWidth, labelHeight);
+
+        int distortionSliderX = getWidth() / 6 - sliderWidth3 / 2 - radius3 / 2.5 - 1;
+        int distortionSliderY = getHeight() / 3.5 + sliderHeight3 / 2 - 1.2 * radius3;
+        setupSliderAndLabel(sliderDistortion, distortionLabel, "distortionSlider", distortionSliderX, distortionSliderY,
+            sliderWidth3, sliderHeight3, textBoxWidth, labelHeight);
+
+        int blendSliderX = getWidth() / 3 + sliderWidth3 / 2 - radius3 - 1;
+        int blendSliderY = distortionSliderY;
+        setupSliderAndLabel(sliderBlend, blendLabel, "blendSlider", blendSliderX, blendSliderY,
+            sliderWidth3, sliderHeight3, textBoxWidth, labelHeight);
+    }
 
     int settingsHeight = 30;
     int settingsWidth = 30;
@@ -236,6 +530,9 @@ void NewProjectAudioProcessorEditor::openSettings(Button* button)
         PopupMenu themeSubMenu;
         themeSubMenu.setLookAndFeel(&customLookAndFeel);
 
+        PopupMenu effectsSubMenu;
+        effectsSubMenu.setLookAndFeel(&customLookAndFeel);
+
         Image catIcon = ImageCache::getFromMemory(BinaryData::catIcon_png, BinaryData::catIcon_pngSize);
         Image minionIcon = ImageCache::getFromMemory(BinaryData::minionIcon_png, BinaryData::minionIcon_pngSize);
         Image starIcon = ImageCache::getFromMemory(BinaryData::starIcon_png, BinaryData::starIcon_pngSize);
@@ -245,9 +542,12 @@ void NewProjectAudioProcessorEditor::openSettings(Button* button)
         themeSubMenu.addItem(102, "minions theme", true, false, minionIcon);
         themeSubMenu.addItem(103, "basic theme", true, false, starIcon);
 
+        effectsSubMenu.addItem(201, "reverb", true, false, starIcon);
+        effectsSubMenu.addItem(202, "basic effects", true, false, starIcon);
+
         // Добавляем подменю к основному меню "Интерфейс"
         settingsMenu.addSubMenu("theme settings", themeSubMenu);
-        settingsMenu.addItem(2, "effects settings");
+        settingsMenu.addSubMenu("effects settings", effectsSubMenu);
 
         PopupMenu::Options options;
         options = options.withMinimumWidth(200).withStandardItemHeight(80).withTargetComponent(button);
@@ -267,8 +567,11 @@ void NewProjectAudioProcessorEditor::openSettings(Button* button)
                 case 103:
                     changeTheme("basic");
                     break;
-                case 2:
-                    AlertWindow::showMessageBoxAsync(AlertWindow::InfoIcon, "settings", "effects");
+                case 201:
+                    setEffect("reverb");
+                    break;
+                case 202:
+                    setEffect("basic");
                     break;
                 }
             });
@@ -296,6 +599,17 @@ void NewProjectAudioProcessorEditor::changeTheme(const String& themeName)
         feedbackLabel.setColour(Label::textColourId, Colours::white);
         blendLabel.setColour(Label::textColourId, Colours::white);
 
+        sliderReverb1.setLookAndFeel(&minionsLookAndFeel);
+        sliderReverb2.setLookAndFeel(&minionsLookAndFeel);
+        sliderReverb3.setLookAndFeel(&minionsLookAndFeel);
+        sliderReverb4.setLookAndFeel(&minionsLookAndFeel);
+        sliderReverb5.setLookAndFeel(&minionsLookAndFeel);
+        sliderReverb6.setLookAndFeel(&minionsLookAndFeel);
+        feedback.setColour(Label::textColourId, Colours::white);
+        mix.setColour(Label::textColourId, Colours::white);
+        delayTime.setColour(Label::textColourId, Colours::white);
+        lpcutoffFrequency.setColour(Label::textColourId, Colours::white);
+        hpcutoffFrequency.setColour(Label::textColourId, Colours::white);
     }
     else if (themeName == "basic")
     {
@@ -310,8 +624,20 @@ void NewProjectAudioProcessorEditor::changeTheme(const String& themeName)
         distortionLabel.setColour(Label::textColourId, Colours::white);
         feedbackLabel.setColour(Label::textColourId, Colours::white);
         blendLabel.setColour(Label::textColourId, Colours::white);
+
+        sliderReverb1.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb2.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb3.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb4.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb5.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb6.setLookAndFeel(&basicLookAndFeel);
+        feedback.setColour(Label::textColourId, Colours::white);
+        mix.setColour(Label::textColourId, Colours::white);
+        delayTime.setColour(Label::textColourId, Colours::white);
+        lpcutoffFrequency.setColour(Label::textColourId, Colours::white);
+        hpcutoffFrequency.setColour(Label::textColourId, Colours::white);
     }
-    else // default theme
+    else if (themeName == "cats") // default theme
     {
         // Установка стандартного фона
         backgroundImage = ImageCache::getFromMemory(BinaryData::background_png, BinaryData::background_pngSize);
@@ -327,6 +653,45 @@ void NewProjectAudioProcessorEditor::changeTheme(const String& themeName)
         distortionLabel.setColour(Label::textColourId, Colours::white);
         feedbackLabel.setColour(Label::textColourId, Colours::white);
         blendLabel.setColour(Label::textColourId, Colours::white);
+
+        sliderReverb1.setLookAndFeel(&customLookAndFeel);
+        sliderReverb2.setLookAndFeel(&customLookAndFeel);
+        sliderReverb3.setLookAndFeel(&customLookAndFeel);
+        sliderReverb4.setLookAndFeel(&customLookAndFeel);
+        sliderReverb5.setLookAndFeel(&customLookAndFeel);
+        sliderReverb6.setLookAndFeel(&customLookAndFeel);
+        feedback.setColour(Label::textColourId, Colours::white);
+        mix.setColour(Label::textColourId, Colours::white);
+        delayTime.setColour(Label::textColourId, Colours::white);
+        lpcutoffFrequency.setColour(Label::textColourId, Colours::white);
+        hpcutoffFrequency.setColour(Label::textColourId, Colours::white);
+
+    }
+    else
+    {
+        backgroundImage = ImageCache::getFromMemory(BinaryData::background5_png, BinaryData::background5_pngSize);
+        sliderDelayMs.setLookAndFeel(&basicLookAndFeel);
+        sliderFeedback.setLookAndFeel(&basicLookAndFeel);
+        sliderVolume.setLookAndFeel(&basicLookAndFeel);
+        sliderDistortion.setLookAndFeel(&basicLookAndFeel);
+        sliderBlend.setLookAndFeel(&basicLookAndFeel);
+        delayLabel.setColour(Label::textColourId, Colours::white);
+        volumeLabel.setColour(Label::textColourId, Colours::white);
+        distortionLabel.setColour(Label::textColourId, Colours::white);
+        feedbackLabel.setColour(Label::textColourId, Colours::white);
+        blendLabel.setColour(Label::textColourId, Colours::white);
+
+        sliderReverb1.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb2.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb3.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb4.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb5.setLookAndFeel(&basicLookAndFeel);
+        sliderReverb6.setLookAndFeel(&basicLookAndFeel);
+        feedback.setColour(Label::textColourId, Colours::white);
+        mix.setColour(Label::textColourId, Colours::white);
+        delayTime.setColour(Label::textColourId, Colours::white);
+        lpcutoffFrequency.setColour(Label::textColourId, Colours::white);
+        hpcutoffFrequency.setColour(Label::textColourId, Colours::white);
     }
 
     repaint();  // Перерисовка интерфейса
