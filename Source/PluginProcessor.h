@@ -48,12 +48,15 @@ public:
     double feedback = 0.1; 
     double delayTime = 0.5;
     double mix = 0.1;
+    double hpcutoffFrequency = 200.0;
 
 private:
     AudioBuffer<float> delayBuffer;
     int writePosition{ 0 };
     AudioBuffer<float> reverbBuffer;
     int writePositionReverb{ 0 };
+    double prevInput = 0.0;
+    double prevOutput = 0.0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewProjectAudioProcessor)
 };

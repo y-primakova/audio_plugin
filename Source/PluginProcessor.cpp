@@ -5,6 +5,7 @@
 #include "distortion.cpp"
 #include "volume.cpp"
 #include "reverb.cpp"
+#include "highpass.cpp"
 
 using namespace std;
 using namespace juce;
@@ -125,7 +126,7 @@ void NewProjectAudioProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuff
     ScopedNoDenormals noDenormals;
     auto totalNumInputChannels = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
-    
+
     int bufferSize = buffer.getNumSamples();
     int delayBufferSize = delayBuffer.getNumSamples();
     int reverbBufferSize = reverbBuffer.getNumSamples();
@@ -154,6 +155,7 @@ void NewProjectAudioProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuff
         distortion(audioBuffer, changeDistortion, changeBlend);
         volume(audioBuffer, changeVolume);
         process(audioBuffer, writePositionReverb, reverbData, feedback, delayTime, mix, getSampleRate());
+        processHp(audioBuffer, getSampleRate(), hpcutoffFrequency, prevInput, prevOutput);
 
         buffer.copyFrom(channel, 0, &audioBuffer[0], bufferSize);
         reverbBuffer.copyFrom(channel, 0, &reverbData[0], reverbBufferSize);
