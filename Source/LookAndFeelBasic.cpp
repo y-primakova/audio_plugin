@@ -52,7 +52,7 @@ void LookAndFeelBasic::drawRotarySlider(Graphics& g, int x, int y, int width, in
     juce::String text = juce::String(value);
     g.drawText(text, x, y + height, width, 20, Justification::centred);
 
-    //slider.setColour(Slider::textBoxOutlineColourId, Colours::transparentBlack);
+    slider.setColour(Slider::textBoxOutlineColourId, Colours::transparentBlack);
 
     slider.setColour(Slider::textBoxTextColourId, Colours::white);
 }

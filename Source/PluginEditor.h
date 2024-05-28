@@ -53,12 +53,11 @@ private:
     Label distortionLabel;
     Label blendLabel;
 
-    Label reverbLabel1;
-    Label reverbLabel2;
-    Label reverbLabel3;
-    Label reverbLabel4;
-    Label reverbLabel5;
-    Label reverbLabel6;
+    Label feedback;
+    Label mix;
+    Label delayTime;
+    Label hpcutoffFrequency;
+    Label lpcutoffFrequency;
 
     ImageButton settingsButton;
 
