@@ -1,5 +1,4 @@
 #pragma once
-
 #include <JuceHeader.h>
 using namespace std;
 using namespace juce;
@@ -27,9 +26,6 @@ public:
 
     const String getName() const override;
 
-    AudioProcessorEditor* createEditor() override;
-    
-    bool hasEditor() const override;
     bool acceptsMidi() const override;
     bool producesMidi() const override;
     bool isMidiEffect() const override;
@@ -43,16 +39,21 @@ public:
 
     void getStateInformation(MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
-
+    
     double changeDelayMs;
     double changeFeedback;
     double changeVolume;
     double changeDistortion;
     double changeBlend;
+    double feedback = 0.1; 
+    double delayTime = 0.5;
+    double mix = 0.1;
 
 private:
     AudioBuffer<float> delayBuffer;
     int writePosition{ 0 };
+    AudioBuffer<float> reverbBuffer;
+    int writePositionReverb{ 0 };
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewProjectAudioProcessor)
 };

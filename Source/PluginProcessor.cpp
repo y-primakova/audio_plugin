@@ -4,6 +4,7 @@
 #include "delay.cpp"
 #include "distortion.cpp"
 #include "volume.cpp"
+#include "reverb.cpp"
 
 using namespace std;
 using namespace juce;
@@ -73,16 +74,6 @@ int NewProjectAudioProcessor::getCurrentProgram()
     return 0;
 }
 
-bool NewProjectAudioProcessor::hasEditor() const
-{
-    return true; 
-}
-
-AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
-{
-    return new NewProjectAudioProcessorEditor(*this);
-}
-
 void NewProjectAudioProcessor::setCurrentProgram(int index)
 {
 }
@@ -100,7 +91,8 @@ void NewProjectAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBl
 {
     auto delayBufferSize = sampleRate * 2.0;
     delayBuffer.setSize(getTotalNumOutputChannels(), (int)delayBufferSize);
-
+    reverbBuffer.setSize(getTotalNumOutputChannels(), sampleRate);
+    reverbBuffer.clear();
 }
 
 void NewProjectAudioProcessor::releaseResources()
@@ -134,12 +126,12 @@ void NewProjectAudioProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuff
     auto totalNumInputChannels = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
     
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; i++) {
-        buffer.clear(i, 0, buffer.getNumSamples());
-    }
-
     int bufferSize = buffer.getNumSamples();
     int delayBufferSize = delayBuffer.getNumSamples();
+    int reverbBufferSize = reverbBuffer.getNumSamples();
+    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; i++) {
+        buffer.clear(i, 0, bufferSize);
+    }
 
     for (int channel = 0; channel < totalNumInputChannels; channel++) {
         float* start = buffer.getWritePointer(channel);
@@ -155,11 +147,16 @@ void NewProjectAudioProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuff
 
     for (int channel = 0; channel < totalNumInputChannels; channel++) {
         float* start = buffer.getWritePointer(channel);
-        vector<float> mybuffer(start, start + bufferSize);
+        vector<float> audioBuffer(start, start + bufferSize);
+        start = reverbBuffer.getWritePointer(channel);
+        vector<float> reverbData(start, start + reverbBufferSize);
 
-        distortion(mybuffer, changeDistortion, changeBlend);
-        volume(mybuffer, changeVolume);
-        buffer.copyFrom(channel, 0, &mybuffer[0], bufferSize);
+        distortion(audioBuffer, changeDistortion, changeBlend);
+        volume(audioBuffer, changeVolume);
+        process(audioBuffer, writePositionReverb, reverbData, feedback, delayTime, mix, getSampleRate());
+
+        buffer.copyFrom(channel, 0, &audioBuffer[0], bufferSize);
+        reverbBuffer.copyFrom(channel, 0, &reverbData[0], reverbBufferSize);
     }
 }
 
@@ -175,12 +172,10 @@ AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
 
 void NewProjectAudioProcessor::getStateInformation(MemoryBlock& destData)
 {
-    
 }
 
 void NewProjectAudioProcessor::setStateInformation(const void* data, int sizeInBytes)
 {
-    
 }
 
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
