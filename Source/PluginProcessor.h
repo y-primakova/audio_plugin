@@ -1,12 +1,11 @@
 #pragma once
 
 #include <JuceHeader.h>
-using namespace std;
-using namespace juce;
 
-class NewProjectAudioProcessor : public AudioProcessor
+
+class NewProjectAudioProcessor : public juce::AudioProcessor
 #if JucePlugin_Enable_ARA
-    , public AudioProcessorARAExtension
+    , public juce::AudioProcessorARAExtension
 #endif
 {
 public:
@@ -20,12 +19,12 @@ public:
     bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
 #endif
 
-    void processBlock(AudioBuffer<float>&, MidiBuffer&) override;
+    void processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
 
-    AudioProcessorEditor* createEditor() override;
+    juce::AudioProcessorEditor* createEditor() override;
     bool hasEditor() const override;
 
-    const String getName() const override;
+   const juce::String getName() const override;
 
     bool acceptsMidi() const override;
     bool producesMidi() const override;
@@ -35,10 +34,10 @@ public:
     int getNumPrograms() override;
     int getCurrentProgram() override;
     void setCurrentProgram(int index) override;
-    const String getProgramName(int index) override;
-    void changeProgramName(int index, const String& newName) override;
+    const juce::String getProgramName(int index) override;
+    void changeProgramName(int index, const juce::String& newName) override;
 
-    void getStateInformation(MemoryBlock& destData) override;
+    void getStateInformation(juce::MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
     double changeDelayMs;
@@ -47,9 +46,14 @@ public:
     double changeDistortion;
     double changeBlend;
 
-private:
-    AudioBuffer<float> delayBuffer;
-    int writePosition{ 0 };
 
+private:
+    void fillBuffer(juce::AudioBuffer<float>& buffer, int channel);
+    void readFromBuffer(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer, int channel);
+    void updateBufferPositions(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer);
+
+    juce::AudioBuffer<float> delayBuffer;
+    int writePosition{ 0 };
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewProjectAudioProcessor)
 };

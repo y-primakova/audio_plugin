@@ -5,17 +5,14 @@
 #include "distortion.cpp"
 #include "volume.cpp"
 
-using namespace std;
-using namespace juce;
-
 NewProjectAudioProcessor::NewProjectAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
     : AudioProcessor(BusesProperties()
 #if ! JucePlugin_IsMidiEffect
 #if ! JucePlugin_IsSynth
-        .withInput("Input", AudioChannelSet::stereo(), true)
+        .withInput("Input", juce::AudioChannelSet::stereo(), true)
 #endif
-        .withOutput("Output", AudioChannelSet::stereo(), true)
+        .withOutput("Output", juce::AudioChannelSet::stereo(), true)
 #endif
     )
 #endif
@@ -26,7 +23,7 @@ NewProjectAudioProcessor::~NewProjectAudioProcessor()
 {
 }
 
-const String NewProjectAudioProcessor::getName() const
+const juce::String NewProjectAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
@@ -77,12 +74,12 @@ void NewProjectAudioProcessor::setCurrentProgram(int index)
 {
 }
 
-const String NewProjectAudioProcessor::getProgramName(int index)
+const juce::String NewProjectAudioProcessor::getProgramName(int index)
 {
     return {};
 }
 
-void NewProjectAudioProcessor::changeProgramName(int index, const String& newName)
+void NewProjectAudioProcessor::changeProgramName(int index, const juce::String& newName)
 {
 }
 
@@ -101,11 +98,11 @@ void NewProjectAudioProcessor::releaseResources()
 bool NewProjectAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
 #if JucePlugin_IsMidiEffect
-    ignoreUnused(layouts);
+    juce::ignoreUnused(layouts);
     return true;
 #else
-    if (layouts.getMainOutputChannelSet() != AudioChannelSet::mono()
-        && layouts.getMainOutputChannelSet() != AudioChannelSet::stereo())
+    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::mono()
+        && layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
         return false;
 
 #if ! JucePlugin_IsSynth
@@ -118,39 +115,93 @@ bool NewProjectAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts
 }
 #endif
 
-void NewProjectAudioProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void NewProjectAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    ScopedNoDenormals noDenormals;
+    juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
-    
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; i++) {
+
+    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear(i, 0, buffer.getNumSamples());
+
+    for (int channel = 0; channel < totalNumInputChannels; channel++)
+    {
+        auto x = fillBuff(buffer.getWritePointer(channel), delayBuffer.getWritePointer(channel), channel, writePosition, buffer.getNumSamples(), delayBuffer.getNumSamples());
+        delayBuffer.copyFrom(channel, 0, x, delayBuffer.getNumSamples());
+        //(float* buffer, float* delayBuffer, int channel, int writePosition, int bufferSize, int delayBufferSize)
+        readFromBuffer(buffer, delayBuffer, channel);
+        fillBuffer(buffer, channel);
     }
 
-    int bufferSize = buffer.getNumSamples();
-    int delayBufferSize = delayBuffer.getNumSamples();
+    updateBufferPositions(buffer, delayBuffer);
 
-    for (int channel = 0; channel < totalNumInputChannels; channel++) {
-        float* start = buffer.getWritePointer(channel);
-        vector<float> myBuffer(start, start + bufferSize);
-        start = delayBuffer.getWritePointer(channel);
-        vector<float> myDelayBuffer(start, start + delayBufferSize);
-        delay(myBuffer, myDelayBuffer, changeDelayMs, changeFeedback, getSampleRate(), writePosition);
-        buffer.copyFrom(channel, 0, &myBuffer[0], bufferSize);
-        delayBuffer.copyFrom(channel, 0, &myDelayBuffer[0], delayBufferSize);
+    for (int channel = 0; channel < totalNumInputChannels; channel++)
+    {
+        auto* channelData = buffer.getWritePointer(channel);
+        for (int sample = 0; sample < buffer.getNumSamples(); sample++)
+        {
+            channelData[sample] *= changeDistortion;
+            channelData[sample] = distortion(buffer.getSample(channel, sample), changeDistortion, changeBlend);
+            channelData[sample] = volume(channelData[sample], changeVolume);
+        }
+    }
+}
+
+
+void NewProjectAudioProcessor::fillBuffer(juce::AudioBuffer<float>& buffer, int channel)
+{
+    auto bufferSize = buffer.getNumSamples();
+    auto delayBufferSize = delayBuffer.getNumSamples();
+
+    if (delayBufferSize > bufferSize + writePosition)
+    {
+        delayBuffer.copyFrom(channel, writePosition, buffer.getWritePointer(channel), bufferSize);
+    }
+    else
+    {
+        auto numSamplesToEnd = delayBufferSize - writePosition;
+
+        delayBuffer.copyFrom(channel, writePosition, buffer.getWritePointer(channel), numSamplesToEnd);
+
+        auto numSamplesAtStart = bufferSize - numSamplesToEnd;
+
+        delayBuffer.copyFrom(channel, 0, buffer.getWritePointer(channel, numSamplesToEnd), numSamplesAtStart);
     }
 
-    writePosition = update(bufferSize, delayBufferSize, writePosition);
+}
 
-    for (int channel = 0; channel < totalNumInputChannels; channel++) {
-        float* start = buffer.getWritePointer(channel);
-        vector<float> mybuffer(start, start + bufferSize);
+void NewProjectAudioProcessor::readFromBuffer(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer, int channel)
+{
+    auto bufferSize = buffer.getNumSamples();
+    auto delayBufferSize = delayBuffer.getNumSamples();
+    auto readPosition = writePosition - (getSampleRate() * changeDelayMs);
 
-        distortion(mybuffer, changeDistortion, changeBlend);
-        volume(mybuffer, changeVolume);
-        buffer.copyFrom(channel, 0, &mybuffer[0], bufferSize);
+    if (readPosition < 0)
+        readPosition += delayBufferSize;
+
+    auto g = changeFeedback;
+
+    if (readPosition + bufferSize < delayBufferSize)
+    {
+        buffer.addFromWithRamp(channel, 0, delayBuffer.getReadPointer(channel, readPosition), bufferSize, g, g);
     }
+    else
+    {
+        auto numSamplesToEnd = delayBufferSize - readPosition;
+        buffer.addFromWithRamp(channel, 0, delayBuffer.getReadPointer(channel, readPosition), numSamplesToEnd, g, g);
+
+        auto numSamplesAtStart = bufferSize - numSamplesToEnd;
+        buffer.addFromWithRamp(channel, numSamplesToEnd, delayBuffer.getReadPointer(channel, 0), numSamplesAtStart, g, g);
+    }
+}
+
+void NewProjectAudioProcessor::updateBufferPositions(juce::AudioBuffer<float>& buffer, juce::AudioBuffer<float>& delayBuffer)
+{
+    auto bufferSize = buffer.getNumSamples();
+    auto delayBufferSize = delayBuffer.getNumSamples();
+
+    writePosition += bufferSize;
+    writePosition %= delayBufferSize;
 }
 
 bool NewProjectAudioProcessor::hasEditor() const
@@ -158,12 +209,12 @@ bool NewProjectAudioProcessor::hasEditor() const
     return true;
 }
 
-AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
+juce::AudioProcessorEditor* NewProjectAudioProcessor::createEditor()
 {
     return new NewProjectAudioProcessorEditor(*this);
 }
 
-void NewProjectAudioProcessor::getStateInformation(MemoryBlock& destData)
+void NewProjectAudioProcessor::getStateInformation(juce::MemoryBlock& destData)
 {
 }
 
@@ -171,7 +222,7 @@ void NewProjectAudioProcessor::setStateInformation(const void* data, int sizeInB
 {
 }
 
-AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new NewProjectAudioProcessor();
 }
