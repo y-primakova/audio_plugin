@@ -20,6 +20,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderDelayMs);
     sliderDelayMs.setLookAndFeel(&customLookAndFeel);
     sliderDelayMs.setRange(0, 100, 1);
+    sliderDelayMs.setValue(0);
     sliderDelayMs.setTextBoxStyle(Slider::TextBoxBelow, false, 100, 20);
     sliderDelayMs.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderDelayMs.addListener(this);
@@ -28,6 +29,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderFeedback);
     sliderFeedback.setLookAndFeel(&customLookAndFeel);
     sliderFeedback.setRange(0, 100, 1);
+    sliderFeedback.setValue(0);
     sliderFeedback.setTextBoxStyle(Slider::TextBoxBelow, false, 100, 20);
     sliderFeedback.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderFeedback.addListener(this);
@@ -35,6 +37,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderVolume);
     sliderVolume.setLookAndFeel(&customLookAndFeel);
     sliderVolume.setRange(0, 100, 1);
+    sliderVolume.setValue(50);
     sliderVolume.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderVolume.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderVolume.addListener(this);
@@ -42,6 +45,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderDistortion);
     sliderDistortion.setLookAndFeel(&customLookAndFeel);
     sliderDistortion.setRange(0, 100, 1);
+    sliderDistortion.setValue(0);
     sliderDistortion.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderDistortion.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderDistortion.addListener(this);
@@ -49,6 +53,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderBlend);
     sliderBlend.setLookAndFeel(&customLookAndFeel);
     sliderBlend.setRange(0, 100, 1);
+    sliderBlend.setValue(0);
     sliderBlend.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderBlend.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderBlend.addListener(this);
@@ -82,6 +87,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderReverb1);
     sliderReverb1.setLookAndFeel(&customLookAndFeel);
     sliderReverb1.setRange(0, 100, 1);
+    sliderReverb1.setValue(0);
     sliderReverb1.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderReverb1.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderReverb1.addListener(this);
@@ -89,6 +95,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderReverb2);
     sliderReverb2.setLookAndFeel(&customLookAndFeel);
     sliderReverb2.setRange(0, 100, 1);
+    sliderReverb2.setValue(0);
     sliderReverb2.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderReverb2.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderReverb2.addListener(this);
@@ -96,13 +103,15 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderReverb3);
     sliderReverb3.setLookAndFeel(&customLookAndFeel);
     sliderReverb3.setRange(0, 100, 1);
+    sliderReverb3.setValue(0);
     sliderReverb3.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderReverb3.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderReverb3.addListener(this);
 
     addAndMakeVisible(sliderReverb4);
     sliderReverb4.setLookAndFeel(&customLookAndFeel);
-    sliderReverb4.setRange(0, 100, 1);
+    sliderReverb4.setRange(0, 100, 0.01);
+    sliderReverb4.setValue(0);
     sliderReverb4.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderReverb4.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderReverb4.addListener(this);
@@ -110,6 +119,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     addAndMakeVisible(sliderReverb5);
     sliderReverb5.setLookAndFeel(&customLookAndFeel);
     sliderReverb5.setRange(0, 100, 1);
+    sliderReverb5.setValue(0);
     sliderReverb5.setTextBoxStyle(Slider::TextBoxBelow, 0, 100, 20);
     sliderReverb5.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
     sliderReverb5.addListener(this);
@@ -163,6 +173,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
     styleMenu.addItem("Change your theme", 2);
     styleMenu.onChange = [this] { styleMenuChanged(); };
     styleMenu.setSelectedId(1);
+    off();
 }
 
 NewProjectAudioProcessorEditor::~NewProjectAudioProcessorEditor()
@@ -239,6 +250,7 @@ void NewProjectAudioProcessorEditor :: setupSliderAndLabel(Slider& slider, Label
 void NewProjectAudioProcessorEditor::setEffect(const String& effectName)
 {
     currentEffect = effectName;
+    off();
 
     if (effectName == "reverb")
     {
@@ -252,6 +264,8 @@ void NewProjectAudioProcessorEditor::setEffect(const String& effectName)
 
 void NewProjectAudioProcessorEditor::setupBasicEffects()
 {
+    off();
+
     // Remove reverb sliders
     sliderReverb1.setVisible(false);
     sliderReverb2.setVisible(false);
@@ -312,6 +326,8 @@ void NewProjectAudioProcessorEditor::setupBasicEffects()
 
 void NewProjectAudioProcessorEditor::setupReverbEffects()
 {
+    off();
+
     sliderDelayMs.setVisible(false);
     sliderFeedback.setVisible(false);
     sliderVolume.setVisible(false);
@@ -505,19 +521,44 @@ void NewProjectAudioProcessorEditor::sliderValueChanged(Slider* slider) {
     if (slider == &sliderBlend) {
         audioProcessor.changeBlend = sliderBlend.getValue();
     }
+    if (slider == &sliderReverb1) {
+        audioProcessor.feedback = sliderReverb1.getValue();
+    }
+    if (slider == &sliderReverb2) {
+        audioProcessor.mix = sliderReverb2.getValue();
+    }
+    if (slider == &sliderReverb3) {
+        audioProcessor.delayTime = sliderReverb3.getValue();
+    }
+    if (slider == &sliderReverb4) {
+        audioProcessor.lpcutoffFrequency = sliderReverb4.getValue();
+    }
+    if (slider == &sliderReverb5) {
+        audioProcessor.hpcutoffFrequency = sliderReverb5.getValue();
+    }
 }
 
 void NewProjectAudioProcessorEditor::off() {
-    audioProcessor.changeDelayMs = 0.0f;
-    sliderDelayMs.setValue(0.0f);
-    audioProcessor.changeFeedback = 0.0f;
-    sliderFeedback.setValue(0.0f);
-    audioProcessor.changeVolume = 1.0;
-    sliderVolume.setValue(1.0);
-    audioProcessor.changeDistortion = 1.0;
-    sliderDistortion.setValue(1.0);
-    audioProcessor.changeBlend = 1.0;
-    sliderBlend.setValue(1.0);
+    audioProcessor.changeDelayMs = 0.0;
+    sliderDelayMs.setValue(0);
+    audioProcessor.changeFeedback = 0.0;
+    sliderFeedback.setValue(0);
+    audioProcessor.changeVolume = 50.0;
+    sliderVolume.setValue(50);
+    audioProcessor.changeDistortion = 0.0;
+    sliderDistortion.setValue(0);
+    audioProcessor.changeBlend = 0.0;
+    sliderBlend.setValue(0);
+    audioProcessor.feedback = 0.0;
+    sliderReverb1.setValue(0);
+    audioProcessor.mix = 0.0;
+    sliderReverb2.setValue(0);
+    audioProcessor.delayTime = 0.0;
+    sliderReverb3.setValue(0);
+    audioProcessor.lpcutoffFrequency = 0.0;
+    sliderReverb4.setValue(0);
+    audioProcessor.hpcutoffFrequency = 0.0;
+    sliderReverb5.setValue(0);
 }
 
 void NewProjectAudioProcessorEditor::openSettings(Button* button)

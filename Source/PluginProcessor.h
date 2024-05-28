@@ -45,18 +45,21 @@ public:
     double changeVolume;
     double changeDistortion;
     double changeBlend;
-    double feedback = 0.1; 
-    double delayTime = 0.5;
-    double mix = 0.1;
-    double hpcutoffFrequency = 200.0;
+    double feedback; 
+    double delayTime;
+    double mix;
+    double hpcutoffFrequency;
+    double lpcutoffFrequency;
 
 private:
     AudioBuffer<float> delayBuffer;
     int writePosition{ 0 };
     AudioBuffer<float> reverbBuffer;
     int writePositionReverb{ 0 };
-    double prevInput = 0.0;
-    double prevOutput = 0.0;
+    double prevInputHp = 0.0;
+    double prevOutputHp = 0.0;
+    double prevInputLp = 0.0;
+    double prevOutputLp = 0.0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewProjectAudioProcessor)
 };

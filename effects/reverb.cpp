@@ -1,5 +1,12 @@
 ﻿
 void process(vector<float>& buffer, int& delayIndex, vector<float>& delayBuffer, double feedback, double delayTime, double mix, double sampleRate) {
+    feedback /= 100;
+    delayTime = 1 - delayTime / 100;
+    if (delayTime < 0.001) {
+        delayTime = 0.001;
+    }
+    mix /= 100;
+
     auto numSamples = buffer.size();
     int delaySamples = static_cast<int>(delayTime * sampleRate);
 

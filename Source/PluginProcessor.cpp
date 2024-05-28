@@ -6,6 +6,7 @@
 #include "volume.cpp"
 #include "reverb.cpp"
 #include "highpass.cpp"
+#include "lowpass.cpp"
 
 using namespace std;
 using namespace juce;
@@ -149,16 +150,21 @@ void NewProjectAudioProcessor::processBlock(AudioBuffer<float>& buffer, MidiBuff
     for (int channel = 0; channel < totalNumInputChannels; channel++) {
         float* start = buffer.getWritePointer(channel);
         vector<float> audioBuffer(start, start + bufferSize);
-        start = reverbBuffer.getWritePointer(channel);
-        vector<float> reverbData(start, start + reverbBufferSize);
 
         distortion(audioBuffer, changeDistortion, changeBlend);
         volume(audioBuffer, changeVolume);
-        process(audioBuffer, writePositionReverb, reverbData, feedback, delayTime, mix, getSampleRate());
-        processHp(audioBuffer, getSampleRate(), hpcutoffFrequency, prevInput, prevOutput);
-
+        if (feedback != 0.0 || delayTime != 0.0 || mix != 0.0 || lpcutoffFrequency != 0.0 || hpcutoffFrequency != 0.0) {
+            start = reverbBuffer.getWritePointer(channel);
+            vector<float> reverbData(start, start + reverbBufferSize);process(audioBuffer, writePositionReverb, reverbData, feedback, delayTime, mix, getSampleRate());
+            if (hpcutoffFrequency != 0.0) {
+                processHp(audioBuffer, getSampleRate(), hpcutoffFrequency, prevInputHp, prevOutputHp);
+            }
+            if (lpcutoffFrequency != 0.0) {
+                processLp(audioBuffer, getSampleRate(), lpcutoffFrequency, prevInputLp, prevOutputLp);
+            }
+            reverbBuffer.copyFrom(channel, 0, &reverbData[0], reverbBufferSize);
+        }
         buffer.copyFrom(channel, 0, &audioBuffer[0], bufferSize);
-        reverbBuffer.copyFrom(channel, 0, &reverbData[0], reverbBufferSize);
     }
 }
 
