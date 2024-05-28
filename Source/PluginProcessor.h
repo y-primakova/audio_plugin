@@ -1,10 +1,13 @@
 #pragma once
 
 #include <JuceHeader.h>
+using namespace std;
 using namespace juce;
 
-
 class NewProjectAudioProcessor : public AudioProcessor
+#if JucePlugin_Enable_ARA
+    , public AudioProcessorARAExtension
+#endif
 {
 public:
     NewProjectAudioProcessor();
@@ -19,6 +22,8 @@ public:
 
     void processBlock(AudioBuffer<float>&, MidiBuffer&) override;
 
+    AudioProcessorEditor* createEditor() override;
+    bool hasEditor() const override;
 
     const String getName() const override;
 
@@ -45,17 +50,9 @@ public:
     double changeDistortion;
     double changeBlend;
 
-
 private:
-    void fillBuffer(AudioBuffer<float>& buffer, int channel);
-    void readFromBuffer(AudioBuffer<float>& buffer, AudioBuffer<float>& delayBuffer, int channel);
-    void updateBufferPositions(AudioBuffer<float>& buffer, AudioBuffer<float>& delayBuffer);
-
     AudioBuffer<float> delayBuffer;
     int writePosition{ 0 };
-
-  
-
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewProjectAudioProcessor)
 };
